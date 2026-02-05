@@ -204,25 +204,25 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  // Internationalization (Language Dropdown)
-  // ---------------------------------------
+  // // Internationalization (Language Dropdown)
+  // // ---------------------------------------
 
-  if (typeof i18next !== 'undefined' && typeof i18NextHttpBackend !== 'undefined') {
-    i18next
-      .use(i18NextHttpBackend)
-      .init({
-        lng: window.templateCustomizer ? window.templateCustomizer.settings.lang : 'en',
-        debug: false,
-        fallbackLng: 'en',
-        backend: {
-          loadPath: assetsPath + 'json/locales/{{lng}}.json'
-        },
-        returnObjects: true
-      })
-      .then(function (t) {
-        localize();
-      });
-  }
+  // if (typeof i18next !== 'undefined' && typeof i18NextHttpBackend !== 'undefined') {
+  //   i18next
+  //     .use(i18NextHttpBackend)
+  //     .init({
+  //       lng: window.templateCustomizer ? window.templateCustomizer.settings.lang : 'en',
+  //       debug: false,
+  //       fallbackLng: 'en',
+  //       backend: {
+  //         loadPath: assetsPath + 'json/locales/{{lng}}.json'
+  //       },
+  //       returnObjects: true
+  //     })
+  //     .then(function (t) {
+  //       localize();
+  //     });
+  // }
 
   let languageDropdown = document.getElementsByClassName('dropdown-language');
 
@@ -455,21 +455,6 @@ function isMacOS() {
   return /Mac|iPod|iPhone|iPad/.test(navigator.userAgent);
 }
 
-// Load search data
-function loadSearchData() {
-  const searchJson = $('#layout-menu').hasClass('menu-horizontal') ? 'search-horizontal.json' : 'search-vertical.json';
-
-  fetch(assetsPath + 'json/' + searchJson)
-    .then(response => {
-      if (!response.ok) throw new Error('Failed to fetch data');
-      return response.json();
-    })
-    .then(json => {
-      data = json;
-      initializeAutocomplete();
-    })
-    .catch(error => console.error('Error loading JSON:', error));
-}
 
 // Initialize autocomplete
 function initializeAutocomplete() {
@@ -709,7 +694,6 @@ document.addEventListener('keydown', event => {
   }
 });
 
-// Load search data on page load
-if (document.documentElement.querySelector('#autocomplete')) {
-  loadSearchData();
+if (typeof loadSearchData === 'function') {
+    loadSearchData();
 }

@@ -44,29 +44,29 @@ new class extends Component {
             <li class="menu-header small">
                 <span class="menu-header-text">Dashboard</span>
             </li>
-            <li class="menu-item">
-                <a href="#" class="menu-link">
+            <li class="menu-item {{ request()->routeIs('dashboard') ? 'active' : '' }}">
+                <a href="{{ route('dashboard') }}" class="menu-link">
                     <i class="menu-icon icon-base ti tabler-layout-grid"></i>
-                    <div>Dashboard</div>
+                    <div data-i18n="dashboard">Dashboard</div>
                 </a>
             </li>
             <!-- Master Kawasan -->
             <li class="menu-header small">
                 <span class="menu-header-text">Master Kawasan</span>
             </li>
-            <li class="menu-item">
+            <li class="menu-item {{ request()->routeIs('kawasan.*') ? 'open' : '' }}">
                 <a href="javascript:void(0);" class="menu-link menu-toggle">
                     <i class="menu-icon icon-base ti tabler-building"></i>
                     <div>Kawasan Hunian</div>
                 </a>
                 <ul class="menu-sub">
-                    <li class="menu-item">
-                        <a href="#" class="menu-link">
+                    <li class="menu-item {{ request()->routeIs('kawasan.data') ? 'active' : '' }}">
+                        <a href="{{ route('kawasan.data') }}" class="menu-link">
                             <div>Data Kawasan</div>
                         </a>
                     </li>
-                    <li class="menu-item">
-                        <a href="#" class="menu-link">
+                    <li class="menu-item {{ request()->routeIs('kawasan.create') ? 'active' : '' }}">
+                        <a href="{{ route('kawasan.create') }}" class="menu-link">
                             <div>Kawasan Baru</div>
                         </a>
                     </li>

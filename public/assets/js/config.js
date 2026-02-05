@@ -6,6 +6,10 @@
  */
 
 'use strict';
+window.assetsPath = document.documentElement.getAttribute('data-assets-path') || '/assets/';
+if (!window.assetsPath.endsWith('/')) {
+  window.assetsPath += '/';
+}
 /* JS global variables
  !Please use the hex color code (#000) here. Don't use rgba(), hsl(), etc
 */
@@ -41,7 +45,7 @@ window.config = {
   enableMenuLocalStorage: true // Enable menu state with local storage support
 };
 
-window.assetsPath = document.documentElement.getAttribute('data-assets-path');
+// window.assetsPath = document.documentElement.getAttribute('data-assets-path');
 window.templateName = document.documentElement.getAttribute('data-template');
 
 /**
@@ -74,9 +78,9 @@ if (typeof TemplateCustomizer !== 'undefined') {
     displayCustomizer: false,
     lang: localStorage.getItem('templateCustomizer-' + templateName + '--Lang') || 'en', // Set default language here
      defaultPrimaryColor: '#0249b4',
-    // defaultSkin: 1,
-    // defaultTheme: 'system',
-    // defaultSemiDark: true,
+    defaultSkin: 0,
+    defaultTheme: 'light',
+    defaultSemiDark: false,
     defaultContentLayout: 'wide',
     // defaultHeaderType: 'static',
     // defaultMenuCollapsed: true,
