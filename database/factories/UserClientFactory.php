@@ -2,7 +2,6 @@
 
 namespace Database\Factories;
 
-use App\Models\User_client;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -15,8 +14,6 @@ class UserClientFactory extends Factory
      *
      * @return array<string, mixed>
      */
-    
-    protected $model = User_client::class;
 
     public function definition(): array
     {

@@ -2,9 +2,8 @@
 
 namespace Database\Factories;
 
-use App\Models\Master_bank;
-use App\Models\Master_bank_tahapan;
-use App\Models\User_client;
+use App\Models\MasterBank;
+use App\Models\UserClient;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -18,13 +17,11 @@ class MasterBankTahapanFactory extends Factory
      * @return array<string, mixed>
      */
 
-    protected $model = Master_bank_tahapan::class;
-
     public function definition(): array
     {
         return [
-            'user_client_id'=> User_client::inRandomOrder()->first()->id,
-            'master_bank_id'=> Master_bank::inRandomOrder()->first()->id,
+            'user_client_id'=> UserClient::inRandomOrder()->first()->id,
+            'master_bank_id'=> MasterBank::inRandomOrder()->first()->id,
             'nama_tahapan' => fake()->randomElement([
                 'Draft',
                 'Verifikasi',

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class User_client extends Model
+class UserClient extends Model
 {
     use HasFactory, SoftDeletes;
 
@@ -20,23 +20,23 @@ class User_client extends Model
 
     public function UserLogins()
     {
-        return $this->hasMany(User_login::class);
+        return $this->hasMany(UserLogin::class);
     }
     public function UserRoles()
     {
-        return $this->hasMany(User_role::class);
+        return $this->hasMany(UserRole::class);
     }
     public function Rabs()
     {
-        return $this->hasMany(Master_rab::class);
+        return $this->hasMany(MasterRab::class);
     }
     public function Kawasans()
     {
-        return $this->hasMany(Master_kawasan::class);
+        return $this->hasMany(MasterKawasan::class);
     }
     public function Banks()
     {
-        return $this->hasMany(Master_bank::class);
+        return $this->hasMany(MasterBank::class);
     }
     public function Ordes()
     {
@@ -44,11 +44,11 @@ class User_client extends Model
     }
     public function RabItems()
     {
-        return $this->hasMany(Master_rab_item::class);
+        return $this->hasMany(MasterRabItem::class);
     }
     public function BankTahapans()
     {
-        return $this->hasMany(Master_bank_tahapan::class);
+        return $this->hasMany(MasterBankTahapan::class);
     }
     public function Units()
     {
@@ -56,11 +56,11 @@ class User_client extends Model
     }
     public function UnitProgress()
     {
-        return $this->hasMany(Unit_progres::class);
+        return $this->hasMany(UnitProgres::class);
     }
     public function OrderUnits()
     {
-        return $this->hasMany(Order_unit::class);
+        return $this->hasMany(OrderUnit::class);
     }
     public function Files()
     {
@@ -68,6 +68,6 @@ class User_client extends Model
     }
     public function OrderItems()
     {
-        return $this->hasMany(Order_item::class);
+        return $this->hasMany(OrderItem::class);
     }
 }

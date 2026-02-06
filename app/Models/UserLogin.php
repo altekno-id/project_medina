@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class User_login extends Model
+class UserLogin extends Model
 {
     use HasFactory, SoftDeletes;
 
@@ -20,23 +20,23 @@ class User_login extends Model
 
     public function UserClients()
     {
-        return $this->belongsTo(User_client::class);
+        return $this->belongsTo(UserClient::class);
     }
     public function UserRoles()
     {
-        return $this->belongsTo(User_role::class);
+        return $this->belongsTo(UserRole::class);
     }
     public function Rabs()
     {
-        return $this->hasMany(Master_rab::class);
+        return $this->hasMany(MasterRab::class);
     }
     public function Kawasans()
     {
-        return $this->hasMany(Master_kawasan::class);
+        return $this->hasMany(MasterKawasan::class);
     }
     public function Banks()
     {
-        return $this->hasMany(Master_bank::class);
+        return $this->hasMany(MasterBank::class);
     }
     public function Orders()
     {

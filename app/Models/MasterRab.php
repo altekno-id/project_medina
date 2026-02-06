@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Master_bank_tahapan extends Model
+class MasterRab extends Model
 {
-    /** @use HasFactory<\Database\Factories\MasterBankTahapanFactory> */
+    /** @use HasFactory<\Database\Factories\MasterRabFactory> */
     use HasFactory, SoftDeletes;
 
     protected $guarded =
@@ -21,14 +21,14 @@ class Master_bank_tahapan extends Model
 
     public function UserClients()
     {
-        return $this->belongsTo(User_client::class);
+        return $this->belongsTo(UserClient::class);
     }
-    public function Banks()
+    public function UserLogins()
     {
-        return $this->belongsTo(Master_bank::class);
+        return $this->belongsTo(UserLogin::class);
     }
-    public function UnitProgress()
+    public function Units()
     {
-        return $this->hasMany(Unit_progres::class);
+        return $this->hasMany(Unit::class);
     }
 }

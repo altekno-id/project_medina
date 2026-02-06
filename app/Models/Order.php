@@ -19,15 +19,15 @@ class Order extends Model
 
     public function UserClients()
     {
-        return $this->belongsTo(User_client::class);
+        return $this->belongsTo(UserClient::class);
     }
     public function UserLogins()
     {
-        return $this->belongsTo(User_login::class);
+        return $this->belongsTo(UserLogin::class);
     }
     public function OrderUnits()
     {
-        return $this->hasMany(Order_unit::class);
+        return $this->hasMany(OrderUnit::class);
     }
 
 }

@@ -19,11 +19,11 @@ class File extends Model
 
     public function UserClients()
     {
-        return $this->belongsTo(User_client::class);
+        return $this->belongsTo(UserClient::class);
     }
     public function Kawasans()
     {
-        return $this->belongsTo(Master_kawasan::class);
+        return $this->belongsTo(MasterKawasan::class);
     }
     public function Units()
     {

@@ -19,27 +19,27 @@ class Unit extends Model
 
     public function UserClients()
     {
-        return $this->belongsTo(User_client::class);
+        return $this->belongsTo(UserClient::class);
     }
     public function KawasanSubs()
     {
-        return $this->belongsTo(Master_kawasan_sub::class);
+        return $this->belongsTo(MasterKawasanSub::class);
     }
     public function Rabs()
     {
-        return $this->belongsTo(Master_rab::class);
+        return $this->belongsTo(MasterRab::class);
     }
     public function Banks()
     {
-        return $this->belongsTo(Master_bank::class);
+        return $this->belongsTo(MasterBank::class);
     }
     public function UnitProgress()
     {
-        return $this->hasMany(Unit_progres::class);
+        return $this->hasMany(UnitProgres::class);
     }
     public function OrderUnits()
     {
-        return $this->hasMany(Order_unit::class);
+        return $this->hasMany(OrderUnit::class);
     }
     public function Files()
     {

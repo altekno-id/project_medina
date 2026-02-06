@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Master_rab_item extends Model
+class MasterRabItem extends Model
 {
     /** @use HasFactory<\Database\Factories\MasterRabItemFactory> */
     use HasFactory, SoftDeletes;
@@ -21,14 +21,14 @@ class Master_rab_item extends Model
 
     public function UserClients()
     {
-        return $this->belongsTo(User_client::class);
+        return $this->belongsTo(UserClient::class);
     }
     public function Rabs()
     {
-        return $this->belongsTo(Master_rab::class);
+        return $this->belongsTo(MasterRab::class);
     }
     public function OrderItems()
     {
-        return $this->hasMany(Order_item::class);
+        return $this->hasMany(OrderItem::class);
     }
 }

@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Order_unit extends Model
+class UnitProgres extends Model
 {
     use SoftDeletes;
 
@@ -19,18 +19,14 @@ class Order_unit extends Model
 
     public function UserClients()
     {
-        return $this->belongsTo(User_client::class);
-    }
-    public function Orders()
-    {
-        return $this->belongsTo(Order::class);
+        return $this->belongsTo(UserClient::class);
     }
     public function Units()
     {
         return $this->belongsTo(Unit::class);
     }
-    public function OrderItems()
+    public function BankTahapans()
     {
-        return $this->hasMany(Order_item::class);
+        return $this->belongsTo(MasterBankTahapan::class);
     }
 }

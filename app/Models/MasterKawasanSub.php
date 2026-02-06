@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Master_kawasan_sub extends Model
+class MasterKawasanSub extends Model
 {
     /** @use HasFactory<\Database\Factories\MasterKawasanSubFactory> */
     use HasFactory, SoftDeletes;
@@ -21,11 +21,11 @@ class Master_kawasan_sub extends Model
 
     public function UserClients()
     {
-        return $this->belongsTo(User_client::class);
+        return $this->belongsTo(UserClient::class);
     }
     public function Kawasans()
     {
-        return $this->belongsTo(Master_kawasan::class);
+        return $this->belongsTo(MasterKawasan::class);
     }
     public function Units()
     {

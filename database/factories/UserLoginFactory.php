@@ -2,9 +2,8 @@
 
 namespace Database\Factories;
 
-use App\Models\User_client;
-use App\Models\User_login;
-use App\Models\User_role;
+use App\Models\UserClient;
+use App\Models\UserRole;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -18,13 +17,11 @@ class UserLoginFactory extends Factory
      * @return array<string, mixed>
      */
 
-    protected $model = User_login::class;
-
     public function definition(): array
     {
         return [
-            'user_client_id' => User_client::inRandomOrder()->first()->id,
-            'user_role_id' => User_role::inRandomOrder()->first()->id,
+            'user_client_id' => UserClient::inRandomOrder()->first()->id,
+            'user_role_id' => UserRole::inRandomOrder()->first()->id,
             'username'=> fake()->userName(),
             'password'=> fake()->password(),
             'nickname' => fake()->name(),

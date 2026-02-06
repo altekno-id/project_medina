@@ -2,9 +2,8 @@
 
 namespace Database\Factories;
 
-use App\Models\Master_rab;
-use App\Models\Master_rab_item;
-use App\Models\User_client;
+use App\Models\MasterRab;
+use App\Models\UserClient;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -18,13 +17,11 @@ class MasterRabItemFactory extends Factory
      * @return array<string, mixed>
      */
 
-    protected $model = Master_rab_item::class;
-
     public function definition(): array
     {
-         return [
-            'user_client_id'=> User_client::inRandomOrder()->first()->id,
-            'master_rab_id'=> Master_rab::inRandomOrder()->first()->id,
+        return [
+            'user_client_id'=> UserClient::inRandomOrder()->first()->id,
+            'master_rab_id'=> MasterRab::inRandomOrder()->first()->id,
             'nama_item'=> fake()->word(),
             'kategori_item'=> fake()->word(),
             'satuan'=> fake()->randomElement([

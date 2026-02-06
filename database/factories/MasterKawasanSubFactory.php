@@ -2,9 +2,8 @@
 
 namespace Database\Factories;
 
-use App\Models\Master_kawasan;
-use App\Models\Master_kawasan_sub;
-use App\Models\User_client;
+use App\Models\MasterKawasan;
+use App\Models\UserClient;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -18,13 +17,11 @@ class MasterKawasanSubFactory extends Factory
      * @return array<string, mixed>
      */
 
-    protected $model = Master_kawasan_sub::class;
-
     public function definition(): array
     {
         return [
-            'user_client_id'=> User_client::inRandomOrder()->first()->id,
-            'master_kawasan_id'=> Master_kawasan::inRandomOrder()->first()->id,
+            'user_client_id'=> UserClient::inRandomOrder()->first()->id,
+            'master_kawasan_id'=> MasterKawasan::inRandomOrder()->first()->id,
             'nama_master_kawasan_sub'=> 'Blok'.' '. fake()->randomLetter(),
         ];
     }

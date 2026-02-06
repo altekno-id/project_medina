@@ -2,8 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\User_client;
-use App\Models\User_role;
+use App\Models\UserClient;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,12 +16,10 @@ class UserRoleFactory extends Factory
      * @return array<string, mixed>
      */
 
-    protected $model = User_role::class;
-
     public function definition(): array
     {
         return [
-            'user_client_id'=> User_client::inRandomOrder()->first()->id,
+            'user_client_id'=> UserClient::inRandomOrder()->first()->id,
             'name_user_role' => fake()->randomElement([
                 'Admin',
                 'Operator',
