@@ -1,3 +1,6 @@
 <div>
-    {{-- Let all your things have their places; let each part of your business have its time. - Benjamin Franklin --}}
+    <div class="row g-6">
+        <h5>Dashboard</h5>
+    </div>
+
 </div>
