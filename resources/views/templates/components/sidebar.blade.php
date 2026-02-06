@@ -47,7 +47,7 @@ new class extends Component {
             <li class="menu-item {{ request()->routeIs('dashboard') ? 'active' : '' }}">
                 <a href="{{ route('dashboard') }}" class="menu-link">
                     <i class="menu-icon icon-base ti tabler-layout-grid"></i>
-                    <div data-i18n="dashboard">Dashboard</div>
+                    <div>Dashboard</div>
                 </a>
             </li>
             <!-- Master Kawasan -->

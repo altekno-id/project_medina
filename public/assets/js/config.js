@@ -77,13 +77,11 @@ if (typeof TemplateCustomizer !== 'undefined') {
   window.templateCustomizer = new TemplateCustomizer({
     displayCustomizer: false,
     lang: localStorage.getItem('templateCustomizer-' + templateName + '--Lang') || 'en', // Set default language here
-     defaultPrimaryColor: '#0249b4',
+    defaultPrimaryColor: '#0249b4',
     defaultSkin: 0,
     defaultTheme: 'light',
     defaultSemiDark: false,
     defaultContentLayout: 'wide',
-    // defaultHeaderType: 'static',
-    // defaultMenuCollapsed: true,
     defaultNavbarType: 'static',
     defaultTextDir: 'ltr',
     // defaultFooterFixed: false,
@@ -91,11 +89,6 @@ if (typeof TemplateCustomizer !== 'undefined') {
     controls: [
       'color',
       'theme',
-      'skins',
-      'semiDark',
-      'layoutCollapsed',
-      'layoutNavbarOptions',
-      'headerType',
       'contentLayout',
       'rtl'
     ]
