@@ -14,8 +14,7 @@
     <meta name="description" content="" />
 
     <!-- Logo medina -->
-    <link rel="icon" type="image/x-icon" href="{{ asset('assets/img/icons/medina-no-bg.png') }}" />
-    <link rel="icon" href="/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
