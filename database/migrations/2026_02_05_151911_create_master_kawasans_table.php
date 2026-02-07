@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\UserClient;
+use App\Models\UserLogin;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -13,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('master_kawasans', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor('user_client_id')->constrained('user_clients')->cascadeOnDelete();
-            $table->foreignIdFor('user_login_id')->constrained('user_logins')->cascadeOnDelete();
+            $table->foreignIdFor(UserClient::class)->constrained();
+            $table->foreignIdFor(UserLogin::class)->constrained();
             $table->string('nama_master_kawasan', 150);
             $table->text('alamat_master_kawasan')->nullable();
             $table->decimal('latitude', 10, 8)->nullable();

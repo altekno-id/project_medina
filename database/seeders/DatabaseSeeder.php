@@ -26,10 +26,7 @@ class DatabaseSeeder extends Seeder
         UserRole::factory(10)->create();
         UserLogin::factory(10)->create();
         MasterBank::factory(10)->create();
-        MasterBankTahapan::factory(10)->create();
         MasterKawasan::factory(10)->create();
-        MasterKawasanSub::factory(10)->create();
         MasterRab::factory(10)->create();
-        MasterRabItem::factory(10)->create();
     }
 }

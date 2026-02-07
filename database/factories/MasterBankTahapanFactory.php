@@ -19,16 +19,6 @@ class MasterBankTahapanFactory extends Factory
 
     public function definition(): array
     {
-        return [
-            'user_client_id'=> UserClient::inRandomOrder()->first()->id,
-            'master_bank_id'=> MasterBank::inRandomOrder()->first()->id,
-            'nama_tahapan' => fake()->randomElement([
-                'Draft',
-                'Verifikasi',
-                'Persetujuan',
-                'Selesai',
-            ]),
-            'nilai_progress'=> fake()->randomFloat(2,0,100)
-        ];
+        return [];
     }
 }

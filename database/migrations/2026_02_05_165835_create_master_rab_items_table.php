@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\MasterRab;
+use App\Models\UserClient;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -13,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('master_rab_items', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor('user_client_id')->constrained('user_clients')->cascadeOnDelete();
-            $table->foreignIdFor('master_rab_id')->constrained('master_rabs')->cascadeOnDelete();
+            $table->foreignIdFor(UserClient::class)->constrained();
+            $table->foreignIdFor(MasterRab::class)->constrained();
             $table->string('nama_item', 150);
             $table->string('kategori_item', 30);
             $table->string('satuan', 30);

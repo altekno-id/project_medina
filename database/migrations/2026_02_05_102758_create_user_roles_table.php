@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\UserClient;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -13,7 +14,7 @@ return new class extends Migration
     {
         Schema::create('user_roles', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor('user_client_id')->constrained('user_clients')->cascadeOnDelete();
+            $table->foreignIdFor(UserClient::class)->constrained();
             $table->string('name_user_role', 50);
             $table->timestamps();
             $table->softDeletes();

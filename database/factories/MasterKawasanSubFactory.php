@@ -19,10 +19,7 @@ class MasterKawasanSubFactory extends Factory
 
     public function definition(): array
     {
-        return [
-            'user_client_id'=> UserClient::inRandomOrder()->first()->id,
-            'master_kawasan_id'=> MasterKawasan::inRandomOrder()->first()->id,
-            'nama_master_kawasan_sub'=> 'Blok'.' '. fake()->randomLetter(),
-        ];
+        return [];
     }
+
 }

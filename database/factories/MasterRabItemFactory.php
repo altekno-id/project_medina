@@ -19,19 +19,6 @@ class MasterRabItemFactory extends Factory
 
     public function definition(): array
     {
-        return [
-            'user_client_id'=> UserClient::inRandomOrder()->first()->id,
-            'master_rab_id'=> MasterRab::inRandomOrder()->first()->id,
-            'nama_item'=> fake()->word(),
-            'kategori_item'=> fake()->word(),
-            'satuan'=> fake()->randomElement([
-                'Meter',
-                'Liter',
-                'Piece',
-                'Juta',
-            ]),
-            'qty_rab'=> fake()->randomFloat(3,0,100),
-            'harga_satuan_rab'=> fake()->randomFloat(2,10000,100000),
-        ];
+        return [];
     }
 }

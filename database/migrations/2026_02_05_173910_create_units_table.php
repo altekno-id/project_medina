@@ -1,5 +1,9 @@
 <?php
 
+use App\Models\MasterBank;
+use App\Models\MasterKawasanSub;
+use App\Models\MasterRab;
+use App\Models\UserClient;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -13,10 +17,10 @@ return new class extends Migration
     {
         Schema::create('units', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor('user_client_id')->constrained('user_clients')->cascadeOnDelete();
-            $table->foreignIdFor('master_kawasan_sub_id')->nullable()->constrained('master_kawasan_subs')->cascadeOnDelete();
-            $table->foreignIdFor('master_rab_id')->constrained('master_rabs')->cascadeOnDelete();
-            $table->foreignIdFor('master_bank_id')->constrained('master_banks')->cascadeOnDelete();
+            $table->foreignIdFor(UserClient::class)->constrained();
+            $table->foreignIdFor(MasterKawasanSub::class)->nullable()->constrained();
+            $table->foreignIdFor(MasterRab::class)->constrained();
+            $table->foreignIdFor(MasterBank::class)->constrained();
             $table->string('nama_jalan', 150)->nullable();
             $table->string('nomor_unit', 50);
             $table->string('tipe_unit', 50)->nullable();

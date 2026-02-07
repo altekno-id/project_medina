@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\MasterBankTahapan;
 use App\Models\UserClient;
 use App\Models\UserLogin;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -24,5 +25,21 @@ class MasterBankFactory extends Factory
             'user_login_id'=> UserLogin::inRandomOrder()->first()->id,
             'nama_master_bank'=> fake()->company().' '. 'bank',
         ];
+    }
+
+    public function configure()
+    {
+        return $this->afterCreating(function ($bank) {
+
+            foreach (range(1, 4) as $i) {
+                MasterBankTahapan::factory()->create([
+                    'master_bank_id' => $bank->id,
+                    'user_client_id' => $bank->user_client_id,
+                    'nama_tahapan'   => "Tahap {$i}",
+                    'nilai_progress'=> 25,
+                ]);
+            }
+
+        });
     }
 }

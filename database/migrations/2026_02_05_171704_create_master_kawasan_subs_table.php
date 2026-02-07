@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\MasterKawasan;
+use App\Models\UserClient;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -13,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('master_kawasan_subs', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor('user_client_id')->constrained('user_clients')->cascadeOnDelete();
-            $table->foreignIdFor('master_kawasan_id')->constrained('master_kawasans')->cascadeOnDelete();
+            $table->foreignIdFor(UserClient::class)->constrained();
+            $table->foreignIdFor(MasterKawasan::class)->constrained();
             $table->string('nama_master_kawasan_sub', 150);
             $table->timestamps();
             $table->softDeletes();

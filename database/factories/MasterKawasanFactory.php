@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\MasterKawasan;
+use App\Models\MasterKawasanSub;
 use App\Models\UserClient;
 use App\Models\UserLogin;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -29,8 +31,21 @@ class MasterKawasanFactory extends Factory
             'info_master_kawasan'=>json_encode([
                 'keterangan'=> fake()->sentence(),
             ]),
-
-
         ];
+    }
+
+    public function configure()
+    {
+        return $this->afterCreating(function ($kawasan) {
+
+            foreach (range(1, 10) as $i) {
+                MasterKawasanSub::factory()->create([
+                    'user_client_id'=> $kawasan->user_client_id,
+                    'master_kawasan_id'=> $kawasan->id,
+                    'nama_master_kawasan_sub'=> "Blok {$i}",
+                ]);
+            }
+
+        });
     }
 }

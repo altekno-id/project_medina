@@ -1,5 +1,8 @@
 <?php
 
+use App\Models\Order;
+use App\Models\Unit;
+use App\Models\UserClient;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -13,9 +16,9 @@ return new class extends Migration
     {
         Schema::create('order_units', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor('user_client_id')->constrained('user_clients')->cascadeOnDelete();
-            $table->foreignIdFor('order_id')->constrained('orders')->cascadeOnDelete();
-            $table->foreignIdFor('unit_id')->constrained('units')->cascadeOnDelete();
+            $table->foreignIdFor(UserClient::class)->constrained();
+            $table->foreignIdFor(Order::class)->constrained();
+            $table->foreignIdFor(Unit::class)->constrained();
             $table->timestamps();
             $table->softDeletes();
         });

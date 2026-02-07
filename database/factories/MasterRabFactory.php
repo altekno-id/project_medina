@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\MasterRabItem;
 use App\Models\UserClient;
 use App\Models\UserLogin;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -25,5 +26,36 @@ class MasterRabFactory extends Factory
             'nama_master_rab'=> fake()->word(),
             'deskripsi'=> fake()->text(),
         ];
+    }
+    public function configure()
+    {
+        return $this->afterCreating(function ($rab) {
+
+            $items = [
+                'Pipa Besi',
+                'Triplek 12 Inchi',
+                'Mesin Air Komplit',
+                'Lampu Tembak',
+                'Lampu Tiang Teras',
+                'Isolasi',
+                'Lampu',
+                'Relief',
+                'Fee Marketing',
+                'Upah Tukang',
+            ];
+
+            foreach ($items as $item) {
+                MasterRabItem::factory()->create([
+                    'user_client_id' => $rab->user_client_id,
+                    'master_rab_id'  => $rab->id,
+                    'nama_item'     => $item,
+                    'kategori_item' => fake()->word(),
+                    'satuan'        => fake()->randomElement(['Meter','Liter','Piece','Juta']),
+                    'qty_rab'       => fake()->randomFloat(2, 1, 100),
+                    'harga_satuan_rab'=> fake()->randomFloat(2, 10000, 100000),
+                ]);
+            }
+
+        });
     }
 }
