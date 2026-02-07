@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('user_logins', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_client_id')->constrained('user_clients')->cascadeOnDelete();
-            $table->foreignId('user_role_id')->constrained('user_roles')->cascadeOnDelete();
+            $table->foreignIdFor('user_client_id')->constrained('user_clients')->cascadeOnDelete();
+            $table->foreignIdFor('user_role_id')->constrained('user_roles')->cascadeOnDelete();
             $table->string('username', 60);
             $table->string('password', 255);
             $table->string('nickname', 80)->nullable();

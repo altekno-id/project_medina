@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('units', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_client_id')->constrained('user_clients')->cascadeOnDelete();
-            $table->foreignId('master_kawasan_sub_id')->nullable()->constrained('master_kawasan_subs')->cascadeOnDelete();
-            $table->foreignId('master_rab_id')->constrained('master_rabs')->cascadeOnDelete();
-            $table->foreignId('master_bank_id')->constrained('master_banks')->cascadeOnDelete();
+            $table->foreignIdFor('user_client_id')->constrained('user_clients')->cascadeOnDelete();
+            $table->foreignIdFor('master_kawasan_sub_id')->nullable()->constrained('master_kawasan_subs')->cascadeOnDelete();
+            $table->foreignIdFor('master_rab_id')->constrained('master_rabs')->cascadeOnDelete();
+            $table->foreignIdFor('master_bank_id')->constrained('master_banks')->cascadeOnDelete();
             $table->string('nama_jalan', 150)->nullable();
             $table->string('nomor_unit', 50);
             $table->string('tipe_unit', 50)->nullable();

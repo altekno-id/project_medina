@@ -3,29 +3,24 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class OrderItem extends Model
 {
     use SoftDeletes;
 
-    protected $guarded =
-    [
-        'id',
-        'created_at',
-        'updated_at',
-        'deleted_at',
-    ];
+    protected $guarded = [];
 
-    public function UserClients()
+    public function user_clients(): BelongsTo
     {
         return $this->belongsTo(UserClient::class);
     }
-    public function OrderUnits()
+    public function order_units(): BelongsTo
     {
         return $this->belongsTo(OrderUnit::class);
     }
-    public function RabItems()
+    public function master_rab_items(): BelongsTo
     {
         return $this->belongsTo(MasterRabItem::class);
     }

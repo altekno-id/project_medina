@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('files', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_client_id')->constrained('user_clients')->cascadeOnDelete();
-            $table->foreignId('master_kawasan_id')->nullable()->constrained('master_kawasans')->cascadeOnDelete();
-            $table->foreignId('unit_id')->nullable()->constrained('units')->cascadeOnDelete();
+            $table->foreignIdFor('user_client_id')->constrained('user_clients')->cascadeOnDelete();
+            $table->foreignIdFor('master_kawasan_id')->nullable()->constrained('master_kawasans')->cascadeOnDelete();
+            $table->foreignIdFor('unit_id')->nullable()->constrained('units')->cascadeOnDelete();
             $table->string('judul_file', 150)->nullable();
             $table->string('nama_file', 255);
             $table->timestamps();

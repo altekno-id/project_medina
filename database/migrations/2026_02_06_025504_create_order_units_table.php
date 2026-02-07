@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('order_units', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_client_id')->constrained('user_clients')->cascadeOnDelete();
-            $table->foreignId('order_id')->constrained('orders')->cascadeOnDelete();
-            $table->foreignId('unit_id')->constrained('units')->cascadeOnDelete();
+            $table->foreignIdFor('user_client_id')->constrained('user_clients')->cascadeOnDelete();
+            $table->foreignIdFor('order_id')->constrained('orders')->cascadeOnDelete();
+            $table->foreignIdFor('unit_id')->constrained('units')->cascadeOnDelete();
             $table->timestamps();
             $table->softDeletes();
         });

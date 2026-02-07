@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('order_items', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_client_id')->constrained('user_clients')->cascadeOnDelete();
-            $table->foreignId('order_unit_id')->constrained('order_units')->cascadeOnDelete();
-            $table->foreignId('master_rab_item_id')->constrained('master_rab_items')->cascadeOnDelete();
+            $table->foreignIdFor('user_client_id')->constrained('user_clients')->cascadeOnDelete();
+            $table->foreignIdFor('order_unit_id')->constrained('order_units')->cascadeOnDelete();
+            $table->foreignIdFor('master_rab_item_id')->constrained('master_rab_items')->cascadeOnDelete();
             $table->decimal('qty', 18, 3);
             $table->decimal('harga_satuan', 18, 2);
             $table->decimal('subtotal', 18, 2);

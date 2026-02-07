@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_client_id')->constrained('user_clients')->cascadeOnDelete();
-            $table->foreignId('user_login_id')->constrained('user_logins')->cascadeOnDelete();
+            $table->foreignIdFor('user_client_id')->constrained('user_clients')->cascadeOnDelete();
+            $table->foreignIdFor('user_login_id')->constrained('user_logins')->cascadeOnDelete();
             $table->string('nomor_order', 50);
             $table->dateTime('tanggal_order');
             $table->enum('tipe_order',['PO','PERMINTAAN_DANA']);

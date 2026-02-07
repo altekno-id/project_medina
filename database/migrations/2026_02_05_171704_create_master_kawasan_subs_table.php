@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('master_kawasan_subs', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_client_id')->constrained('user_clients')->cascadeOnDelete();
-            $table->foreignId('master_kawasan_id')->constrained('master_kawasans')->cascadeOnDelete();
+            $table->foreignIdFor('user_client_id')->constrained('user_clients')->cascadeOnDelete();
+            $table->foreignIdFor('master_kawasan_id')->constrained('master_kawasans')->cascadeOnDelete();
             $table->string('nama_master_kawasan_sub', 150);
             $table->timestamps();
             $table->softDeletes();

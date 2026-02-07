@@ -3,29 +3,24 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class UnitProgres extends Model
 {
     use SoftDeletes;
 
-    protected $guarded =
-    [
-        'id',
-        'created_at',
-        'updated_at',
-        'deleted_at',
-    ];
+    protected $guarded = [];
 
-    public function UserClients()
+    public function user_clients(): BelongsTo
     {
         return $this->belongsTo(UserClient::class);
     }
-    public function Units()
+    public function units(): BelongsTo
     {
         return $this->belongsTo(Unit::class);
     }
-    public function BankTahapans()
+    public function master_bank_tahapans(): BelongsTo
     {
         return $this->belongsTo(MasterBankTahapan::class);
     }

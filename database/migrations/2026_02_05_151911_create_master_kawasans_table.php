@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('master_kawasans', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_client_id')->constrained('user_clients')->cascadeOnDelete();
-            $table->foreignId('user_login_id')->constrained('user_logins')->cascadeOnDelete();
+            $table->foreignIdFor('user_client_id')->constrained('user_clients')->cascadeOnDelete();
+            $table->foreignIdFor('user_login_id')->constrained('user_logins')->cascadeOnDelete();
             $table->string('nama_master_kawasan', 150);
             $table->text('alamat_master_kawasan')->nullable();
             $table->decimal('latitude', 10, 8)->nullable();

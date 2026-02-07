@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('unit_progress', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_client_id')->constrained('user_clients')->cascadeOnDelete();
-            $table->foreignId('unit_id')->constrained('units')->cascadeOnDelete();
-            $table->foreignId('master_bank_tahapan_id')->constrained('master_bank_tahapans')->cascadeOnDelete();
+            $table->foreignIdFor('user_client_id')->constrained('user_clients')->cascadeOnDelete();
+            $table->foreignIdFor('unit_id')->constrained('units')->cascadeOnDelete();
+            $table->foreignIdFor('master_bank_tahapan_id')->constrained('master_bank_tahapans')->cascadeOnDelete();
             $table->boolean('status_pencarian');
             $table->timestamps();
             $table->softDeletes();

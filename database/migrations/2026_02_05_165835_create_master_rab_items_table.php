@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('master_rab_items', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_client_id')->constrained('user_clients')->cascadeOnDelete();
-            $table->foreignId('master_rab_id')->constrained('master_rabs')->cascadeOnDelete();
+            $table->foreignIdFor('user_client_id')->constrained('user_clients')->cascadeOnDelete();
+            $table->foreignIdFor('master_rab_id')->constrained('master_rabs')->cascadeOnDelete();
             $table->string('nama_item', 150);
             $table->string('kategori_item', 30);
             $table->string('satuan', 30);
