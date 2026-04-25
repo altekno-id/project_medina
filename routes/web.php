@@ -3,7 +3,9 @@
 use App\Livewire\Dashboard\DashboardIndex;
 use App\Livewire\KawasanHunian\CreateKawasan;
 use App\Livewire\KawasanHunian\DataKawasan;
+use App\Livewire\Pembiayaan\CreatePembiayaan;
 use App\Livewire\Pembiayaan\DataPembiayaan;
+use App\Livewire\Pembiayaan\DetailPembiayaan;
 use Illuminate\Support\Facades\Route;
 
 // Route::get('/', function () {
@@ -20,5 +22,7 @@ Route::prefix('kawasan')->group(function () {
 Route::prefix('pembiayaan')->group(function () {
     Route::name('pembiayaan.')->group(function () {
         Route::livewire('/data', DataPembiayaan::class)->name('data');
+        Route::livewire('/create', CreatePembiayaan::class)->name('create');
+        Route::livewire('/detail', DetailPembiayaan::class)->name('detail');
     });
 });
