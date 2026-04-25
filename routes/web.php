@@ -1,11 +1,13 @@
 <?php
 
+use App\Http\Controllers\PembiayaanController;
 use App\Livewire\Dashboard\DashboardIndex;
 use App\Livewire\MasterKawasan\MasterKawasanCreate;
 use App\Livewire\MasterKawasan\MasterKawasanData;
-use App\Livewire\Pembiayaan\CreatePembiayaan;
-use App\Livewire\Pembiayaan\DataPembiayaan;
-use App\Livewire\Pembiayaan\DetailPembiayaan;
+use App\Livewire\Pembiayaan\PembiayaanCreate;
+use App\Livewire\Pembiayaan\PembiayaanData;
+use App\Livewire\Pembiayaan\PembiayaanDetail;
+use App\Livewire\Pembiayaan\PembiayaanEdit;
 use App\Livewire\Rab\CreateRab;
 use App\Livewire\Rab\DataRab;
 use App\Livewire\Rab\DetailRab;
@@ -24,9 +26,11 @@ Route::prefix('kawasan')->group(function () {
 
 Route::prefix('pembiayaan')->group(function () {
     Route::name('pembiayaan.')->group(function () {
-        Route::livewire('/data', DataPembiayaan::class)->name('data');
-        Route::livewire('/create', CreatePembiayaan::class)->name('create');
-        Route::livewire('/detail', DetailPembiayaan::class)->name('detail');
+        Route::get('/dt', [PembiayaanController::class, 'index'])->name('dt');
+        Route::livewire('/data', PembiayaanData::class)->name('data');
+        Route::livewire('/create', PembiayaanCreate::class)->name('create');
+        Route::livewire('/edit/{id}', PembiayaanEdit::class)->name('edit');
+        Route::livewire('/detail/{id}', PembiayaanDetail::class)->name('detail');
     });
 });
 
