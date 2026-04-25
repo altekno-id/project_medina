@@ -78,11 +78,11 @@ new class extends Component {
                             <div>RAB Baru</div>
                         </a>
                     </li>
-                    <li class="menu-item {{ request()->routeIs('rab.detail') ? 'active' : '' }}">
+                    {{-- <li class="menu-item {{ request()->routeIs('rab.detail') ? 'active' : '' }}">
                         <a href="{{ route('rab.detail') }}" class="menu-link">
                             <div>Detail RAB</div>
                         </a>
-                    </li>
+                    </li> --}}
                 </ul>
             </li>
             <li class="menu-item {{ request()->routeIs('pembiayaan.*') ? 'open' : '' }}">

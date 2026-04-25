@@ -21,10 +21,12 @@ class MasterRab extends Model
         static::creating(function ($model) {
             // jika gak ada sesi (proses development belum ada modul login)
             $model->user_client_id = 1;
-
+            $model->user_login_id = 1;
             // jika sudah ada
             if (Auth::check()) {
                 $model->user_client_id = Auth::user()->user_client_id;
+                $model->user_login_id = Auth::user()->user_login_id;
+
             }
         });
     }
