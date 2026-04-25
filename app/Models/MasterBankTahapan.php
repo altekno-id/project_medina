@@ -15,6 +15,19 @@ class MasterBankTahapan extends Model
 
     protected $guarded = [];
 
+    protected static function booted()
+    {
+        static::creating(function ($model) {
+            // jika gak ada sesi (proses development belum ada modul login)
+            $model->user_client_id = 1;
+
+            // jika sudah ada
+            if (Auth::check()) {
+                $model->user_client_id = Auth::user()->user_client_id;
+            }
+        });
+    }
+
     public function user_clients(): BelongsTo
     {
         return $this->belongsTo(UserClient::class);
