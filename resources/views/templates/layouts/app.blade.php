@@ -15,9 +15,11 @@
     <link rel="stylesheet" href="{{ asset('assets/vendor/fonts/iconify-icons.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/vendor/css/core.css') }}" />
     @yield('css')
-    <script src="{{ asset('assets/js/config.js') }}"></script>
+    <link rel="stylesheet" href="{{ asset('assets/vendor/libs/notyf/notyf.css') }}" />
     @livewireStyles
+    <link rel="stylesheet" href="{{ asset('mine/style.css') }}" />
     @stack('css-push')
+    <script src="{{ asset('assets/js/config.js') }}"></script>
 </head>
 
 <body>
@@ -65,7 +67,9 @@
     <script src="{{ asset('assets/vendor/libs/hammer/hammer.js') }}"></script>
     <script src="{{ asset('assets/vendor/js/menu.js') }}"></script>
     @yield('js')
+    <script src="{{ asset('assets/vendor/libs/notyf/notyf.js') }}"></script>
     <script src="{{ asset('assets/js/main.js') }}"></script>
+    <script src="{{ asset('mine/script.js') }}"></script>
     @livewireScripts
     @stack('js-push')
 </body>
