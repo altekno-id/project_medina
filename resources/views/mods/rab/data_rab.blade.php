@@ -1,19 +1,10 @@
 <div>
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item">
-                <a href="javascript:void(0);">RAB</a>
-            </li>
-            <li class="breadcrumb-item">
-                <a href="javascript:void(0);">Data Rab</a>
-            </li>
-        </ol>
-    </nav>
-
-    <!-- DataTable with Buttons -->
     <div class="card">
         <div class="card-header d-flex justify-content-between align-items-center">
             <h5 class="mb-0">Data RAB</h5>
+            <a href="{{ route('rab.create') }}" type="submit" class="btn btn-primary">
+                <i class="icon-base ti tabler-plus me-2"></i>RAB Baru
+            </a>
         </div>
         <hr>
         <div class="card-datatable table-responsive pt-0">
@@ -37,9 +28,15 @@
                         <td>1</td>
                         <td>1</td>
                         <td>1</td>
-                        <td>
-                            <button type="button" class="btn btn-icon btn-outline-primary">
-                                <span class="icon-base ti tabler-eye icon-22px"></span>
+                        <td class="">
+                            <button type="button" class="btn btn-icon rounded-pill btn-text-info">
+                                <i class="icon-base ti tabler-eye icon-22px"></i>
+                            </button>
+                            <button type="button" class="btn btn-icon rounded-pill btn-text-warning">
+                                <i class="icon-base ti tabler-edit icon-22px"></i>
+                            </button>
+                            <button type="button" class="btn btn-icon rounded-pill btn-text-danger">
+                                <i class="icon-base ti tabler-trash icon-22px"></i>
                             </button>
                         </td>
                     </tr>

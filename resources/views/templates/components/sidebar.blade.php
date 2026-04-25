@@ -73,13 +73,13 @@ new class extends Component {
                             <div>Data RAB</div>
                         </a>
                     </li>
-                    <li class="menu-item">
-                        <a href="#" class="menu-link">
+                    <li class="menu-item {{ request()->routeIs('rab.create') ? 'active' : '' }}">
+                        <a href="{{ route('rab.create') }}" class="menu-link">
                             <div>RAB Baru</div>
                         </a>
                     </li>
-                    <li class="menu-item">
-                        <a href="#" class="menu-link">
+                    <li class="menu-item {{ request()->routeIs('rab.detail') ? 'active' : '' }}">
+                        <a href="{{ route('rab.detail') }}" class="menu-link">
                             <div>Detail RAB</div>
                         </a>
                     </li>
