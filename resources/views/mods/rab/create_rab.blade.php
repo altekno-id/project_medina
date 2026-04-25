@@ -19,9 +19,10 @@
     <div class="card mb-6">
         <div class="card-header d-flex justify-content-between align-items-center">
             <h5 class="mb-0">Item RAB</h5>
-            <a href="" type="submit" class="btn btn-primary">
+            <button type="button" class="btn btn-primary" wire:click="tambahTahapan">
                 <i class="icon-base ti tabler-plus me-2"></i>Tambah Baris Item
-            </a>
+            </button>
+
         </div>
         <div class="table-responsive text-nowrap text-center">
             <table class="table" id="myTable">
@@ -38,45 +39,48 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>
-                            <div class="mb-2">
-                                <input type="text" class="form-control" placeholder="Nama Item" />
-                            </div>
-                        </td>
-                        <td>
-                            <div class="mb-2">
-                                <select id="defaultSelect" class="form-select">
-                                    <option>Pilih..</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
-                                </select>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="mb-2">
-                                <input type="text" class="form-control" placeholder="Satuan" />
-                            </div>
-                        </td>
-                        <td>
-                            <div class="mb-2">
-                                <input type="text" class="form-control" placeholder="Quantities" />
-                            </div>
-                        </td>
-                        <td>
-                            <div class="mb-2">
-                                <input type="text" class="form-control" placeholder="0000" />
-                            </div>
-                        </td>
-                        <td>Rp.100.000</td>
-                        <td class="">
-                            <button type="button" class="btn btn-icon rounded-pill btn-text-danger">
-                                <i class="icon-base ti tabler-trash icon-22px"></i>
-                            </button>
-                        </td>
-                    </tr>
+                    @for ($i = 0; $i < $tahapan; $i++)
+                        <tr>
+                            <td>{{ $i + 1 }}</td>
+                            <td>
+                                <div class="mb-2">
+                                    <input type="text" class="form-control" placeholder="Nama Item" />
+                                </div>
+                            </td>
+                            <td>
+                                <div class="mb-2">
+                                    <select id="defaultSelect" class="form-select">
+                                        <option>Pilih..</option>
+                                        <option value="1">One</option>
+                                        <option value="2">Two</option>
+                                        <option value="3">Three</option>
+                                    </select>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="mb-2">
+                                    <input type="text" class="form-control" placeholder="Satuan" />
+                                </div>
+                            </td>
+                            <td>
+                                <div class="mb-2">
+                                    <input type="text" class="form-control" placeholder="Quantities" />
+                                </div>
+                            </td>
+                            <td>
+                                <div class="mb-2">
+                                    <input type="text" class="form-control" placeholder="0000" />
+                                </div>
+                            </td>
+                            <td>Rp.100.000</td>
+                            <td class="">
+                                <button type="button" class="btn btn-icon rounded-pill btn-text-danger"
+                                    wire:click="hapusTahapan">
+                                    <i class="icon-base ti tabler-trash icon-22px btn btn-danger"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    @endfor
                 </tbody>
                 <tfoot>
                     <tr>
@@ -95,9 +99,6 @@
     </div>
     <div class="card mt-4">
         <div class="card-body d-flex justify-content-end gap-2">
-            <button type="reset" class="btn btn-label-secondary">
-                Simpan Draft
-            </button>
             <button type="submit" class="btn btn-primary">
                 Simpan RAB
             </button>
