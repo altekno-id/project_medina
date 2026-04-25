@@ -1,5 +1,5 @@
 <div>
-    <div class="row mb-4">
+    <div class="row mb-6">
         <div class="col-12">
             <div class="card shadow-sm">
                 <div class="row g-0 align-items-stretch">
@@ -56,7 +56,7 @@
             </div>
         </div>
     </div>
-    <div class="card">
+    <div class="card mt-4">
         <div class="card-datatable table-responsive pt-0">
             <table class="datatables-basic table" id="myTable">
                 <thead>

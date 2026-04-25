@@ -1,5 +1,5 @@
 <div>
-    <div class="card mb-4">
+    <div class="card mb-6">
         <h5 class="card-header">Informasi RAB</h5>
         <form class="card-body">
             <div class="row g-6">
@@ -16,16 +16,15 @@
             </div>
         </form>
     </div>
-    <div class="card mb-4">
+    <div class="card mb-6">
         <div class="card-header d-flex justify-content-between align-items-center">
             <h5 class="mb-0">Item RAB</h5>
             <a href="" type="submit" class="btn btn-primary">
                 <i class="icon-base ti tabler-plus me-2"></i>Tambah Baris Item
             </a>
         </div>
-        <hr>
-        <div class="card-datatable table-responsive pt-0">
-            <table class="datatables-basic table" id="myTable">
+        <div class="table-responsive text-nowrap text-center">
+            <table class="table" id="myTable">
                 <thead>
                     <tr>
                         <th>No</th>
@@ -41,9 +40,13 @@
                 <tbody>
                     <tr>
                         <td>1</td>
-                        <td>Contoh : Semen Gersik 50KG</td>
                         <td>
-                            <div class="mb-4">
+                            <div class="mb-2">
+                                <input type="text" class="form-control" placeholder="Nama Item" />
+                            </div>
+                        </td>
+                        <td>
+                            <div class="mb-2">
                                 <select id="defaultSelect" class="form-select">
                                     <option>Pilih..</option>
                                     <option value="1">One</option>
@@ -52,9 +55,21 @@
                                 </select>
                             </div>
                         </td>
-                        <td>Satuan</td>
-                        <td>1</td>
-                        <td>1</td>
+                        <td>
+                            <div class="mb-2">
+                                <input type="text" class="form-control" placeholder="Satuan" />
+                            </div>
+                        </td>
+                        <td>
+                            <div class="mb-2">
+                                <input type="text" class="form-control" placeholder="Quantities" />
+                            </div>
+                        </td>
+                        <td>
+                            <div class="mb-2">
+                                <input type="text" class="form-control" placeholder="0000" />
+                            </div>
+                        </td>
                         <td>Rp.100.000</td>
                         <td class="">
                             <button type="button" class="btn btn-icon rounded-pill btn-text-danger">
@@ -65,19 +80,18 @@
                 </tbody>
                 <tfoot>
                     <tr>
-                        <td colspan="7" class="text-end">Total Item</td>
+                        <td colspan="6" class="text-end">Total Item</td>
                         <td id="totalItem">0</td>
                         <td></td>
                     </tr>
                     <tr>
-                        <td colspan="7" class="text-end">Total Biaya RAB</td>
+                        <td colspan="6" class="text-end">Total Biaya RAB</td>
                         <td id="totalBiaya">Rp 0</td>
                         <td></td>
                     </tr>
                 </tfoot>
             </table>
         </div>
-
     </div>
     <div class="card mt-4">
         <div class="card-body d-flex justify-content-end gap-2">
@@ -94,8 +108,5 @@
     @endpush
     @push('js-push')
         <script src="{{ asset('assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js') }}"></script>
-        <script>
-            let table = new DataTable('#myTable');
-        </script>
     @endpush
 </div>
