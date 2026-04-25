@@ -15,6 +15,20 @@ class PembiayaanCreate extends Component
     {
         $this->validate();
 
+        $total = collect($this->form['tahapan'])->sum('nilai_progress');
+
+        if ($total != 100) {
+            // $this->addError('total_progress', 'Total progress harus 100%, sekarang: ' . $total . '%');
+
+            $this->dispatch('notify', data: [
+                'type' => 'error',
+                'title' => 'Proses gagal',
+                'message' => 'Total progress harus 100%, sekarang: ' . $total . '%',
+            ]);
+
+            return;
+        }
+
         $query = MasterBankRepo::storeData($this->form);
 
         if ($query) {
