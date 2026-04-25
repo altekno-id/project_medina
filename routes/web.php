@@ -6,6 +6,9 @@ use App\Livewire\KawasanHunian\DataKawasan;
 use App\Livewire\Pembiayaan\CreatePembiayaan;
 use App\Livewire\Pembiayaan\DataPembiayaan;
 use App\Livewire\Pembiayaan\DetailPembiayaan;
+use App\Livewire\Rab\CreateRab;
+use App\Livewire\Rab\DataRab;
+use App\Livewire\Rab\DetailRab;
 use Illuminate\Support\Facades\Route;
 
 // Route::get('/', function () {
@@ -24,5 +27,13 @@ Route::prefix('pembiayaan')->group(function () {
         Route::livewire('/data', DataPembiayaan::class)->name('data');
         Route::livewire('/create', CreatePembiayaan::class)->name('create');
         Route::livewire('/detail', DetailPembiayaan::class)->name('detail');
+    });
+});
+
+Route::prefix('rab')->group(function () {
+    Route::name('rab.')->group(function () {
+        Route::livewire('/data', DataRab::class)->name('data');
+        Route::livewire('/create', CreateRab::class)->name('create');
+        Route::livewire('/detail', DetailRab::class)->name('detail');
     });
 });
