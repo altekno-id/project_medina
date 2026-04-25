@@ -85,14 +85,14 @@ new class extends Component {
                     </li>
                 </ul>
             </li>
-            <li class="menu-item">
+            <li class="menu-item {{ request()->routeIs('pembiayaan.*') ? 'open' : '' }}">
                 <a href="javascript:void(0);" class="menu-link menu-toggle">
                     <i class="menu-icon icon-base ti tabler-cash"></i>
                     <div>Pembiayaan</div>
                 </a>
                 <ul class="menu-sub">
-                    <li class="menu-item">
-                        <a href="#" class="menu-link">
+                    <li class="menu-item {{ request()->routeIs('pembiayaan.data') ? 'active' : '' }}">
+                        <a href="{{ route('pembiayaan.data') }}" class="menu-link">
                             <div>Data Pembiayaan</div>
                         </a>
                     </li>
