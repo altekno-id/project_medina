@@ -3,6 +3,7 @@
 use App\Livewire\Dashboard\DashboardIndex;
 use App\Livewire\KawasanHunian\CreateKawasan;
 use App\Livewire\KawasanHunian\DataKawasan;
+use App\Livewire\Rab\DataRab;
 use Illuminate\Support\Facades\Route;
 
 // Route::get('/', function () {
@@ -13,5 +14,11 @@ Route::prefix('kawasan')->group(function () {
     Route::name('kawasan.')->group(function () {
         Route::livewire('/data', DataKawasan::class)->name('data');
         Route::livewire('/create', CreateKawasan::class)->name('create');
+    });
+});
+Route::prefix('rab')->group(function () {
+    Route::name('rab.')->group(function () {
+        Route::livewire('/data', DataRab::class)->name('data');
+        // Route::livewire('/create', CreateKawasan::class)->name('create');
     });
 });
