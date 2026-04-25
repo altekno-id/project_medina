@@ -52,11 +52,11 @@ class CreateRab extends Component
         return [
             "form.master_rab.nama_master_rab.required" => "Mohon Masukkan Nama RAB",
             "form.master_rab.deskripsi" => "Mohon Masukkan Deskripsi RAB",
-            "form.rab_items.*.nama_item"=> "Mohon Masukkan Nama Item",
-            "form.rab_items.*.kategori_item"=> "Mohon Pilih Kategori Item",
-            "form.rab_items.*.satuan"=> "Mohon Masukkan Satuan Item",
-            "form.rab_items.*.qty_rab"=> "Mohon Masukkan Quantities Item",
-            "form.rab_items.*.harga_satuan_rab"=> "Mohon Masukkan Harga Satuan Item",
+            "form.rab_items.*.nama_item" => "Mohon Masukkan Nama Item",
+            "form.rab_items.*.kategori_item" => "Mohon Pilih Kategori Item",
+            "form.rab_items.*.satuan" => "Mohon Masukkan Satuan Item",
+            "form.rab_items.*.qty_rab" => "Mohon Masukkan Kuantiti Item",
+            "form.rab_items.*.harga_satuan_rab" => "Mohon Masukkan Harga Satuan Item",
         ];
     }
     public function resetForm()
@@ -80,10 +80,10 @@ class CreateRab extends Component
     public $validationAttributes = [
         "form.master_rab.nama_rab" => "Nama RAB",
         "form.master_rab.deskripsi" => "Deskripsi",
-        "form.rab_items.nama_item" => "Nama item",
+        "form.rab_items.nama_item" => "Nama Item",
         "form.rab_items.kategori_item" => "Kategori item",
         "form.rab_items.satuan" => "Satuan",
-        "form.rab_items.qty_rab" => "Quantities",
+        "form.rab_items.qty_rab" => "Kuantiti RAB",
         "form.rab_items.harga_satuan_rab" => "Harga Satuan RAB",
     ];
 
@@ -101,6 +101,21 @@ class CreateRab extends Component
     {
         unset($this->form['rab_items'][$index]);
         $this->form['rab_items'] = array_values($this->form['rab_items']);
+    }
+    public function getSubtotal($item)
+    {
+        $qty = (float) ($item['qty_rab'] ?? 0);
+        $harga = (float) ($item['harga_satuan_rab'] ?? 0);
+        return $qty * $harga;
+    }
+    public function getTotalBiayaProperty()
+    {
+        return collect($this->form['rab_items'])
+        ->sum(function ($item) {
+            $qty = (float) ($item['qty_rab'] ?? 0);
+            $harga = (float) ($item['harga_satuan_rab'] ?? 0);
+            return $qty * $harga;
+        });
     }
     public function render()
     {

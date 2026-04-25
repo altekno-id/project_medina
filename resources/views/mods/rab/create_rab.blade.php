@@ -19,8 +19,7 @@
                         <label class="form-label">Deskripsi</label>
                         <input type="text"
                             class="form-control @error('form.master_rab.deskripsi') {{ 'is-invalid' }} @enderror"
-                            placeholder="Berikan Deskripsi Singkat Untuk RAB Ini"
-                            wire:model="form.master_rab.deskripsi" />
+                            placeholder="Masukkan Deskripsi Singkat RAB" wire:model="form.master_rab.deskripsi" />
                         <div class="invalid-feedback">
                             @error('form.master_rab.deskripsi')
                                 {{ $message }}
@@ -98,10 +97,10 @@
                                 </td>
                                 <td>
                                     <div class="mb-2">
-                                        <input type="text"
+                                        <input type="number"
                                             class="form-control @error('form.rab_items.*.qty_rab') {{ 'is-invalid' }} @enderror"
-                                            placeholder="Quantities"
-                                            wire:model="form.rab_items.{{ $i }}.qty_rab" />
+                                            placeholder="0"
+                                            wire:model.live="form.rab_items.{{ $i }}.qty_rab" />
                                         <div class="invalid-feedback">
                                             @error('form.rab_items.*.qty_rab')
                                                 {{ $message }}
@@ -111,10 +110,10 @@
                                 </td>
                                 <td>
                                     <div class="mb-2">
-                                        <input type="text"
+                                        <input type="number"
                                             class="form-control @error('form.rab_items.*.harga_satuan_rab') {{ 'is-invalid' }} @enderror"
-                                            placeholder="Rp.100000"
-                                            wire:model="form.rab_items.{{ $i }}.harga_satuan_rab" />
+                                            placeholder="100000"
+                                            wire:model.live="form.rab_items.{{ $i }}.harga_satuan_rab" />
                                         <div class="invalid-feedback">
                                             @error('form.rab_items.*.harga_satuan_rab')
                                                 {{ $message }}
@@ -122,7 +121,7 @@
                                         </div>
                                     </div>
                                 </td>
-                                <td>1000000</td>
+                                <td>Rp.{{ number_format($this->getSubtotal($item), 0, ',', '.') }}</td>
                                 <td class="">
                                     <button type="button" class="btn btn-icon rounded-pill btn-text-danger"
                                         wire:click="hapusItem({{ $i }})">
@@ -135,12 +134,16 @@
                     <tfoot>
                         <tr>
                             <td colspan="6" class="text-end">Total Item</td>
-                            <td id="totalItem">0</td>
+                            <td id="totalItem">
+                                {{ count($form['rab_items']) }}
+                            </td>
                             <td></td>
                         </tr>
                         <tr>
                             <td colspan="6" class="text-end">Total Biaya RAB</td>
-                            <td id="totalBiaya">Rp 0</td>
+                            <td id="totalBiaya">
+                                Rp {{ number_format($this->totalBiaya, 0, ',', '.') }}
+                            </td>
                             <td></td>
                         </tr>
                     </tfoot>
