@@ -62,47 +62,47 @@ new class extends Component {
                     </li>
                 </ul>
             </li>
-            <li class="menu-item">
+            <li class="menu-item {{ request()->routeIs('rab.*') ? 'open' : '' }}">
                 <a href="javascript:void(0);" class="menu-link menu-toggle">
                     <i class="menu-icon icon-base ti tabler-file"></i>
                     <div>RAB</div>
                 </a>
                 <ul class="menu-sub">
-                    <li class="menu-item">
-                        <a href="#" class="menu-link">
+                    <li class="menu-item {{ request()->routeIs('rab.data') ? 'active' : '' }}">
+                        <a href="{{ route('rab.data') }}" class="menu-link">
                             <div>Data RAB</div>
                         </a>
                     </li>
-                    <li class="menu-item">
-                        <a href="#" class="menu-link">
+                    <li class="menu-item {{ request()->routeIs('rab.create') ? 'active' : '' }}">
+                        <a href="{{ route('rab.create') }}" class="menu-link">
                             <div>RAB Baru</div>
                         </a>
                     </li>
-                    <li class="menu-item">
-                        <a href="#" class="menu-link">
+                    <li class="menu-item {{ request()->routeIs('rab.detail') ? 'active' : '' }}">
+                        <a href="{{ route('rab.detail') }}" class="menu-link">
                             <div>Detail RAB</div>
                         </a>
                     </li>
                 </ul>
             </li>
-            <li class="menu-item">
+            <li class="menu-item {{ request()->routeIs('pembiayaan.*') ? 'open' : '' }}">
                 <a href="javascript:void(0);" class="menu-link menu-toggle">
                     <i class="menu-icon icon-base ti tabler-cash"></i>
                     <div>Pembiayaan</div>
                 </a>
                 <ul class="menu-sub">
-                    <li class="menu-item">
-                        <a href="#" class="menu-link">
+                    <li class="menu-item {{ request()->routeIs('pembiayaan.data') ? 'active' : '' }}">
+                        <a href="{{ route('pembiayaan.data') }}" class="menu-link">
                             <div>Data Pembiayaan</div>
                         </a>
                     </li>
-                    <li class="menu-item">
-                        <a href="#" class="menu-link">
+                    <li class="menu-item {{ request()->routeIs('pembiayaan.create') ? 'active' : '' }}">
+                        <a href="{{ route('pembiayaan.create') }}" class="menu-link">
                             <div>Pembiayaan Baru</div>
                         </a>
                     </li>
-                    <li class="menu-item">
-                        <a href="#" class="menu-link">
+                    <li class="menu-item {{ request()->routeIs('pembiayaan.detail') ? 'active' : '' }}">
+                        <a href="{{ route('pembiayaan.detail') }}" class="menu-link">
                             <div>Detail Pembiayaan</div>
                         </a>
                     </li>

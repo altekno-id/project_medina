@@ -33,7 +33,7 @@
   --bs-gray-700: #6d6b77;
   --bs-gray-800: #595564;
   --bs-gray-900: #444050;
-  --bs-primary: #7367f0;
+  --bs-primary: #0249b4;
   --bs-secondary: #808390;
   --bs-success: #28c76f;
   --bs-info: #00bad1;
@@ -46,7 +46,7 @@
   --bs-secondary-rgb: 128, 131, 144;
   --bs-success-rgb: 40, 199, 111;
   --bs-info-rgb: 0, 186, 209;
-  --bs-warning-rgb: 255, 159, 67;
+  --bs-warning-rgb: 255, 159, 67;d
   --bs-danger-rgb: 255, 76, 81;
   --bs-light-rgb: 223, 223, 227;
   --bs-dark-rgb: 47, 51, 73;
@@ -100,7 +100,7 @@
   --bs-tertiary-bg: #dfdfe3;
   --bs-tertiary-bg-rgb: 223, 223, 227;
   --bs-heading-color: #444050;
-  --bs-link-color: #7367f0;
+  --bs-link-color: #0249b4;
   --bs-link-color-rgb: 115, 103, 240;
   --bs-link-decoration: none;
   --bs-link-hover-color: #685dd8;
@@ -3398,8 +3398,8 @@ textarea.form-control-lg {
 
 .btn-primary {
   --bs-btn-color: #fff;
-  --bs-btn-bg: #7367f0;
-  --bs-btn-border-color: #7367f0;
+  --bs-btn-bg: #0249b4;
+  --bs-btn-border-color: #0249b4;
   --bs-btn-hover-color: #fff;
   --bs-btn-hover-bg: #685dd8;
   --bs-btn-hover-border-color: #5c52c0;
@@ -3409,8 +3409,8 @@ textarea.form-control-lg {
   --bs-btn-active-border-color: #564db4;
   --bs-btn-active-shadow: none;
   --bs-btn-disabled-color: #fff;
-  --bs-btn-disabled-bg: #7367f0;
-  --bs-btn-disabled-border-color: #7367f0;
+  --bs-btn-disabled-bg: #0249b4;
+  --bs-btn-disabled-border-color: #0249b4;
 }
 
 .btn-secondary {
@@ -3550,19 +3550,19 @@ textarea.form-control-lg {
 }
 
 .btn-outline-primary {
-  --bs-btn-color: #7367f0;
-  --bs-btn-border-color: #7367f0;
+  --bs-btn-color: #0249b4;
+  --bs-btn-border-color: #0249b4;
   --bs-btn-hover-color: #fff;
-  --bs-btn-hover-bg: #7367f0;
-  --bs-btn-hover-border-color: #7367f0;
+  --bs-btn-hover-bg: #0249b4;
+  --bs-btn-hover-border-color: #0249b4;
   --bs-btn-focus-shadow-rgb: 115, 103, 240;
   --bs-btn-active-color: #fff;
-  --bs-btn-active-bg: #7367f0;
-  --bs-btn-active-border-color: #7367f0;
+  --bs-btn-active-bg: #0249b4;
+  --bs-btn-active-border-color: #0249b4;
   --bs-btn-active-shadow: none;
-  --bs-btn-disabled-color: #7367f0;
+  --bs-btn-disabled-color: #0249b4;
   --bs-btn-disabled-bg: transparent;
-  --bs-btn-disabled-border-color: #7367f0;
+  --bs-btn-disabled-border-color: #0249b4;
   --bs-gradient: none;
 }
 
@@ -8060,7 +8060,7 @@ textarea.form-control-lg {
   --bs-gray-700: #acabc1;
   --bs-gray-800: #bdbcd3;
   --bs-gray-900: #cfcde4;
-  --bs-primary: #7367f0;
+  --bs-primary: #0249b4;
   --bs-secondary: #808390;
   --bs-success: #28c76f;
   --bs-info: #00bad1;
@@ -8095,7 +8095,7 @@ textarea.form-control-lg {
 /*
 ? styles specifically for apex-chart dark variant */
 .apexcharts-theme-dark {
-  --bs-primary: #7367f0;
+  --bs-primary: #0249b4;
   --bs-secondary: #808390;
   --bs-success: #28c76f;
   --bs-info: #00bad1;
@@ -11480,16 +11480,16 @@ button:focus-visible {
 
 /* Text */
 .btn-text-vimeo {
-  --bs-btn-color: var(--bs-vimeo);
-  --bs-btn-hover-color: var(--bs-vimeo);
-  --bs-btn-active-color: var(--bs-vimeo);
-  --bs-btn-group-border-color: var(--bs-vimeo);
-  --bs-btn-waves-effect-color: var(--bs-vimeo-rgb);
-  --bs-btn-hover-bg: color-mix(in sRGB, var(--bs-paper-bg) 92%, var(--bs-vimeo));
+  --bs-btn-color: var(--bs-primary);
+  --bs-btn-hover-color: var(--bs-primary);
+  --bs-btn-active-color: var(--bs-primary);
+  --bs-btn-group-border-color: var(--bs-primary);
+  --bs-btn-waves-effect-color: var(--bs-primary-rgb);
+  --bs-btn-hover-bg: color-mix(in sRGB, var(--bs-paper-bg) 92%, var(--bs-primary));
   --bs-btn-hover-border-color: var(--bs-btn-hover-bg);
-  --bs-btn-active-bg: color-mix(in sRGB, var(--bs-paper-bg) 92%, var(--bs-vimeo));
+  --bs-btn-active-bg: color-mix(in sRGB, var(--bs-paper-bg) 92%, var(--bs-primary));
   --bs-btn-active-border-color: var(--bs-btn-active-bg);
-  --bs-btn-disabled-color: var(--bs-vimeo);
+  --bs-btn-disabled-color: var(--bs-primary);
 }
 
 /* Dark Theme */
