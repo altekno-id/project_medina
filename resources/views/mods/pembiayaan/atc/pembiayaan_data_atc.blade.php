@@ -81,7 +81,7 @@
                         return `
                             <a href="/pembiayaan/detail/${row.id}" class="btn btn-sm btn-primary menu-icon icon-base ti tabler-eye"></a>
                             <a href="${editUrl}" class="btn btn-sm btn-primary menu-icon icon-base ti tabler-pencil"></a>
-                            <button class="btn btn-sm btn-danger menu-icon icon-base ti tabler-trash" wire:click="deleteConfirm(${row.id}, ${row.nama_master_bank})"></button>
+                            <button type="button" class="btn btn-sm btn-danger menu-icon icon-base ti tabler-trash" onclick="deleteConfirm(${row.id}, '${row.nama_master_bank}')"></button>
                         `;
                     }
                 }
@@ -97,6 +97,13 @@
             }
 
         });
+
+        function deleteConfirm(id, nama) {
+            Livewire.dispatch('PembiayaanData-deleteConfirm', {
+                id: id,
+                nama: nama
+            });
+        }
 
         dtTable.on('draw.dt', function() {
             $('#checkall1').prop('checked', false);

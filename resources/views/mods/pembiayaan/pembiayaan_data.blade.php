@@ -37,5 +37,6 @@
         </div>
     </div>
 
+    <livewire:modal-confirm />
     @include('pembiayaan.atc.pembiayaan_data_atc')
 </div>

@@ -9,18 +9,22 @@ use Livewire\Component;
 class PembiayaanData extends Component
 {
     public $deleteId;
+
+    #[On('PembiayaanData-deleteConfirm')]
     public function deleteConfirm($id, $nama)
     {
+        // dd($id, $nama);
+
         $this->deleteId = $id;
         $dtHook = [
             'color' => 'danger',
             'icon' => 'trash',
             'label' => 'Menghapus Data',
-            'msg' => "menghapus SK $nama ?",
+            'msg' => "menghapus $nama ?",
             'dispatch' => "PembiayaanData-delete",
         ];
 
-        $this->dispatch('modal-confirm', $dtHook);
+        $this->dispatch('modal-confirm-generateDataConfirm', $dtHook);
         $this->dispatch('showModal', id: 'modalConfirm');
     }
 
