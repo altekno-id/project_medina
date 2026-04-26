@@ -11,6 +11,9 @@ class PembiayaanController extends Controller
     {
         $data = MasterBankRepo::getData();
 
-        return DataTables::of($data)->toJson();
+        return DataTables::of($data)
+            ->filterColumn('nama_master_bank', function ($query, $keyword) {
+                $query->where('nama_master_bank', 'like', "%{$keyword}%");
+            })->toJson();
     }
 }

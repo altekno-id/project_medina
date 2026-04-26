@@ -21,13 +21,13 @@
                             <span class="text-secondary">Nama Lembaga</span>
                             <span class="fw-bold">{{ $data->nama_master_bank }}</span>
                         </div>
-                        <div class="col-md-6 d-flex flex-column">
+                        {{-- <div class="col-md-6 d-flex flex-column">
                             <span class="text-secondary">Jenis Pembiayaan</span>
                             <span class="fw-bold">Kredit Konstruksi</span>
-                        </div>
+                        </div> --}}
                     </div>
 
-                    <div class="row mt-5">
+                    {{-- <div class="row mt-5">
                         <div class="col-md-12 d-flex flex-column">
                             <span class="text-secondary">Catatan Pembiayaan</span>
                             <span>Pembiayaan pembangunan infrastruktur tahap 1 hingga 5. Peninjauan dilakukan secara berkala setiap pencapaian progres sebesar 12%.</span>
@@ -42,7 +42,7 @@
                                 Aktif - Read Only
                             </span>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>

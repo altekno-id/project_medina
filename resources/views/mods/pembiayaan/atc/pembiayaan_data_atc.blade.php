@@ -54,7 +54,7 @@
                     data: 'nama_master_bank',
                     name: 'nama_master_bank',
                     orderable: true,
-                    searchable: false,
+                    searchable: true,
                     render: function(data, type, row) {
                         return data
                     }

@@ -8,10 +8,6 @@
         <div class="col-md">
             <div class="card">
                 <div class="d-flex justify-content-end mt-5 me-5 pe-3">
-                    <button class="btn btn-outline-dark me-1">
-                        <i class="menu-icon icon-base ti tabler-filter"></i>
-                        Filter
-                    </button>
                     <a href="{{ route('pembiayaan.create') }}" class="btn btn-primary">+ Pembiayaan Baru</a>
                 </div>
                 <div wire:ignore class="card-datatable table-responsive px-5">
@@ -22,6 +18,16 @@
                                 <th>NAMA PEMBIAYAAN (BANK/SKEMA)</th>
                                 <th>JUMLAH TAHAPAN</th>
                                 <th style="width:5px;">AKSI</th>
+                            </tr>
+                        </thead>
+                        <thead id="header-filter">
+                            <tr>
+                                <th></th>
+                                <th class="text-center">
+                                    <input type="text" class="form-control search-col-dt" placeholder="Cari...">
+                                </th>
+                                <th></th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody></tbody>
