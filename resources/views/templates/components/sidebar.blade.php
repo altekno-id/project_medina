@@ -69,7 +69,7 @@ new class extends Component {
                 </a>
                 <ul class="menu-sub">
                     <li
-                        class="menu-item {{ request()->routeIs('rab.data') || request()->routeIs('rab.detail') ? 'active' : '' }}">
+                        class="menu-item {{ request()->routeIs('rab.data') || request()->routeIs('rab.detail') || request()->routeIs('rab.edit') ? 'active' : '' }}">
                         <a href="{{ route('rab.data') }}" class="menu-link">
                             <div>Data RAB</div>
                         </a>

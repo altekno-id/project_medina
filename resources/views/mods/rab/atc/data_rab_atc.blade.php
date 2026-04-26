@@ -102,7 +102,7 @@
                     orderable: false,
                     searchable: false,
                     render: function(data, type, row) {
-                        let url = "{{ route('pembiayaan.edit', ':id') }}";
+                        let url = "{{ route('rab.edit', ':id') }}";
                         let editUrl = url.replace(':id', row.id);
 
                         return `

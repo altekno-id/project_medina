@@ -12,6 +12,7 @@ use App\Livewire\Pembiayaan\PembiayaanEdit;
 use App\Livewire\Rab\CreateRab;
 use App\Livewire\Rab\DataRab;
 use App\Livewire\Rab\DetailRab;
+use App\Livewire\Rab\EditRab;
 use Illuminate\Support\Facades\Route;
 
 // Route::get('/', function () {
@@ -41,5 +42,6 @@ Route::prefix('rab')->group(function () {
         Route::livewire('/data', DataRab::class)->name('data');
         Route::livewire('/create', CreateRab::class)->name('create');
         Route::livewire('/detail/{id}', DetailRab::class)->name('detail');
+        Route::livewire('/edit/{id}', EditRab::class)->name('edit');
     });
 });
