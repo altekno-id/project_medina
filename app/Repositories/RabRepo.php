@@ -25,7 +25,6 @@ class RabRepo
             $rab = MasterRab::create($dtRab);
             $rabId = $rab->id;
             foreach ($dtItems as $item) {
-
                 MasterRabItem::create([
                     'master_rab_id' => $rabId,
                     'user_client_id' => Auth::user()->user_client_id ?? 1,
