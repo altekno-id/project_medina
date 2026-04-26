@@ -3,7 +3,6 @@
         'title' => 'Detail RAB',
         'desc' => 'Ringkasan master RAB dan total anggarannya',
     ]" />
-
     <div class="row mb-6">
         <div class="col-12">
             <div class="card shadow-sm">

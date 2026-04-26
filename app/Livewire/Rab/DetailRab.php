@@ -15,7 +15,7 @@ class DetailRab extends Component
         $this->id = $id;
         $this->data = RabRepo::getDetail($id);
     }
-
+    
     public function render()
     {
         return view('mods.rab.detail_rab');

@@ -41,5 +41,6 @@
             </div>
         </div>
     </div>
+    <livewire:modal-confirm />
     @include('mods.rab.atc.data_rab_atc')
 </div>

@@ -86,7 +86,6 @@ class CreateRab extends Component
         "form.rab_items.qty_rab" => "Kuantiti RAB",
         "form.rab_items.harga_satuan_rab" => "Harga Satuan RAB",
     ];
-
     public function tambahItem()
     {
         $this->form['rab_items'][] = [

@@ -21,8 +21,10 @@ class RabRepo
     {
         DB::beginTransaction();
         try {
+
             $rab = MasterRab::create($dtRab);
             $rabId = $rab->id;
+            
             foreach ($dtItems as $item) {
                 MasterRabItem::create([
                     'master_rab_id' => $rabId,
@@ -45,14 +47,12 @@ class RabRepo
     {
         DB::beginTransaction();
         try {
-            // 1. update master
+
             $rab = MasterRab::findOrFail($id);
             $rab->update($dtRab);
 
-            // 2. hapus item lama
             MasterRabItem::where('master_rab_id', $id)->delete();
 
-            // 3. insert ulang item
             foreach ($dtItems as $item) {
                 MasterRabItem::create([
                     'master_rab_id' => $id,
@@ -63,6 +63,21 @@ class RabRepo
                     'harga_satuan_rab' => $item['harga_satuan_rab'],
                 ]);
             }
+            DB::commit();
+            return true;
+        } catch (\Exception $e) {
+            DB::rollBack();
+            dd($e->getMessage());
+            return false;
+        }
+    }
+    public static function delete($id)
+    {
+        DB::beginTransaction();
+        try {
+            MasterRabItem::where('master_rab_id', $id)->delete();
+
+            MasterRab::findOrFail($id)->delete();
 
             DB::commit();
             return true;

@@ -127,7 +127,7 @@
         });
 
         function deleteConfirm(id, nama) {
-            Livewire.dispatch('PembiayaanData-deleteConfirm', {
+            Livewire.dispatch('RabData-deleteConfirm', {
                 id: id,
                 nama: nama
             });

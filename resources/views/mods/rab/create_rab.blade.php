@@ -3,7 +3,6 @@
         'title' => 'RAB Baru',
         'desc' => 'Buat master RAB dan tambahkan item di dalamnya secara efisien',
     ]" />
-
     <form wire:submit="formSubmit">
         <div class="card mb-6">
             <h5 class="card-header">Informasi RAB</h5>
@@ -128,10 +127,12 @@
                                 </td>
                                 <td>Rp.{{ number_format($this->getSubtotal($item), 0, ',', '.') }}</td>
                                 <td class="">
-                                    <button type="button" class="btn btn-icon rounded-pill btn-text-danger"
-                                        wire:click="hapusItem({{ $i }})">
-                                        <i class="icon-base ti tabler-trash icon-22px btn btn-danger"></i>
-                                    </button>
+                                    @if (count($form['rab_items']) > 1)
+                                        <button type="button" class="btn btn-icon rounded-pill btn-text-danger"
+                                            wire:click="hapusItem({{ $i }})">
+                                            <i class="icon-base ti tabler-trash icon-22px btn btn-danger"></i>
+                                        </button>
+                                    @endif
                                 </td>
                             </tr>
                         @endforeach
