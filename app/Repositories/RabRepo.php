@@ -27,7 +27,6 @@ class RabRepo
             foreach ($dtItems as $item) {
                 MasterRabItem::create([
                     'master_rab_id' => $rabId,
-                    'user_client_id' => Auth::user()->user_client_id ?? 1,
                     'nama_item' => $item['nama_item'],
                     'kategori_item' => $item['kategori_item'],
                     'satuan' => $item['satuan'],
@@ -42,5 +41,12 @@ class RabRepo
             dd($e->getMessage());
             return false;
         }
+    }
+
+    public static function getDt()
+    {
+       return MasterRab::query()
+        ->where('user_client_id', Auth::user()->user_client_id)
+        ->with(['user_logins', 'items']);
     }
 }

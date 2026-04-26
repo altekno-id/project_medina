@@ -32,6 +32,7 @@ Route::prefix('pembiayaan')->group(function () {
 
 Route::prefix('rab')->group(function () {
     Route::name('rab.')->group(function () {
+        Route::get('/datatable', [KecamatanController::class, 'dataDt'])->name('Dt');
         Route::livewire('/data', DataRab::class)->name('data');
         Route::livewire('/create', CreateRab::class)->name('create');
         Route::livewire('/detail', DetailRab::class)->name('detail');
