@@ -47,6 +47,6 @@ class RabRepo
     {
        return MasterRab::query()
         ->where('user_client_id', Auth::user()->user_client_id)
-        ->with(['user_logins', 'items']);
+        ->with(['items']);
     }
 }

@@ -24,7 +24,7 @@
                 // { className: 'text-center', targets: ['_all'] },
             ],
             // mengarah ke route 
-            ajax: '{{ route('kecamatan.Dt') }}',
+            ajax: '{{ route('rab.Dt') }}',
             columns: [{
                     data: null,
                     name: 'created_at',
