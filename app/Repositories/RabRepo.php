@@ -45,8 +45,7 @@ class RabRepo
 
     public static function getDt()
     {
-       return MasterRab::query()
-        ->where('user_client_id', Auth::user()->user_client_id)
-        ->with(['items']);
+       $data = MasterRab::query()->with(['master_rab_items']);
+       return $data;
     }
 }

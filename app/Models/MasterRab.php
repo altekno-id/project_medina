@@ -38,6 +38,10 @@ class MasterRab extends Model
     {
         return $this->belongsTo(UserLogin::class);
     }
+    public function master_rab_items()
+    {
+        return $this->hasMany(MasterRabItem::class);
+    }
     public function units(): HasMany
     {
         return $this->hasMany(Unit::class);

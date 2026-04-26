@@ -7,40 +7,30 @@
             </a>
         </div>
         <hr>
-        <div class="card-datatable table-responsive pt-0">
-            <table class="datatables-basic table" id="myTable">
+        <div wire:ignore class="card-datatable table-responsive pt-0">
+            <table id="myTable" class="datatables-basic table">
                 <thead>
                     <tr>
                         <th>No</th>
                         <th>Nama RAB</th>
                         <th>Deskripsi</th>
-                        <th>Jumlah Item</th>
+                        <th>Jumalah Item</th>
                         <th>Total QTY</th>
                         <th>Total Biaya RAB</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
-                <tbody>
+                <thead id="header-filter">
                     <tr>
-                        <td>1</td>
-                        <td>1</td>
-                        <td>1</td>
-                        <td>1</td>
-                        <td>1</td>
-                        <td>1</td>
-                        <td class="">
-                            <button type="button" class="btn btn-icon rounded-pill btn-text-info">
-                                <i class="icon-base ti tabler-eye icon-22px"></i>
-                            </button>
-                            <button type="button" class="btn btn-icon rounded-pill btn-text-warning">
-                                <i class="icon-base ti tabler-edit icon-22px"></i>
-                            </button>
-                            <button type="button" class="btn btn-icon rounded-pill btn-text-danger">
-                                <i class="icon-base ti tabler-trash icon-22px"></i>
-                            </button>
-                        </td>
+                        <th></th>
+                        <th class="text-center">
+                            <input type="text" class="form-control search-col-dt" placeholder="Cari...">
+                        </th>
+                        <th></th>
+                        <th></th>
                     </tr>
-                </tbody>
+                </thead>
+                <tbody></tbody>
             </table>
         </div>
     </div>
