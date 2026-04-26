@@ -26,7 +26,6 @@ class MasterRab extends Model
             if (Auth::check()) {
                 $model->user_client_id = Auth::user()->user_client_id;
                 $model->user_login_id = Auth::user()->user_login_id;
-
             }
         });
     }

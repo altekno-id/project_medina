@@ -1,10 +1,8 @@
 <div>
-    <div class="row mb-5">
-        <div class="d-flex flex-column">
-            <span class="fs-4 fw-bold">Detail Pembiayaan</span>
-            <span style="font-size:14px;">Informasi pihak bank/lembaga pembiayaan dan tahapan pencairan dana secara rinci.</span>
-        </div>
-    </div>
+    <livewire:page-title :data="[
+        'title' => 'Detail Pembiayaan',
+        'desc' => 'Informasi pihak bank/lembaga pembiayaan dan tahapan pencairan dana secara rinci.',
+    ]" />
 
     {{-- INFORMASI PIHAK PEMBIAYAAN --}}
     <div class="row mb-5">
@@ -21,15 +19,15 @@
                     <div class="row">
                         <div class="col-md-6 d-flex flex-column">
                             <span class="text-secondary">Nama Lembaga</span>
-                            <span class="fw-bold">Bank Mandiri Persero Tbk.</span>
+                            <span class="fw-bold">{{ $data->nama_master_bank }}</span>
                         </div>
-                        <div class="col-md-6 d-flex flex-column">
+                        {{-- <div class="col-md-6 d-flex flex-column">
                             <span class="text-secondary">Jenis Pembiayaan</span>
                             <span class="fw-bold">Kredit Konstruksi</span>
-                        </div>
+                        </div> --}}
                     </div>
 
-                    <div class="row mt-5">
+                    {{-- <div class="row mt-5">
                         <div class="col-md-12 d-flex flex-column">
                             <span class="text-secondary">Catatan Pembiayaan</span>
                             <span>Pembiayaan pembangunan infrastruktur tahap 1 hingga 5. Peninjauan dilakukan secara berkala setiap pencapaian progres sebesar 12%.</span>
@@ -44,7 +42,7 @@
                                 Aktif - Read Only
                             </span>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>
@@ -71,11 +69,13 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Tahapan persiapan & pembersihan lahan</td>
-                                <td class="text-success">100%</td>
-                            </tr>
+                            @foreach ($data->master_bank_tahapans as $item)
+                                <tr>
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $item->nama_tahapan }}</td>
+                                    <td>{{ $item->nilai_progress }}</td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -83,4 +83,6 @@
         </div>
     </div>
     {{-- END --}}
+
+    {{-- @include('pembiayaan.atc.pembiayaan_detail_atc') --}}
 </div>

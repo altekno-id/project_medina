@@ -27,6 +27,7 @@ class MasterRabItem extends Model
                 $model->user_client_id = Auth::user()->user_client_id;
             }
         });
+
     }
 
     public function user_clients(): BelongsTo
