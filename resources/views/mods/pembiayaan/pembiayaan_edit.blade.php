@@ -70,7 +70,11 @@
                                                 @enderror
                                             </div>
                                         </td>
-                                        <td><i class="menu-icon icon-base ti tabler-trash btn btn-danger" wire:click="hapusTahapan({{ $i }})"></i></td>
+                                        <td>
+                                            @if (count($form['tahapan']) > 1)
+                                                <i class="menu-icon icon-base ti tabler-trash btn btn-danger" wire:click="hapusTahapan({{ $i }})"></i>
+                                            @endif
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>
