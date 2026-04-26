@@ -15,11 +15,6 @@
                     <!-- RIGHT CONTENT -->
                     <div class="col-md-10">
                         <div class="card-body p-4">
-                            <!-- HEADER -->
-                            <div class="d-flex justify-content-between align-items-center mb-2">
-                                <span class="badge bg-label-primary">ID : {{ $data->id }}</span>
-                                <span class="badge rounded-pill bg-success">● Published</span>
-                            </div>
                             <!-- TITLE -->
                             <h4 class="fw-bold mb-2">{{ $data->nama_master_rab }}</h4>
                             <!-- DESC -->

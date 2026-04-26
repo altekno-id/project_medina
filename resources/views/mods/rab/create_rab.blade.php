@@ -40,18 +40,18 @@
                     <i class="icon-base ti tabler-plus me-2"></i>Tambah Baris Item
                 </button>
             </div>
-            <div class="table-responsive text-nowrap text-center">
+            <div class="card-datatable table-responsive">
                 <table class="table" id="myTable">
                     <thead>
                         <tr>
-                            <th>No</th>
+                            <th style="width:5px;">No</th>
                             <th>Nama Item</th>
                             <th>Kategori</th>
                             <th>Satuan</th>
                             <th>QTY RAB</th>
                             <th>Harga Satuan</th>
-                            <th>Subtotal</th>
-                            <th>Aksi</th>
+                            <th style="width:5px;">Subtotal</th>
+                            <th style="width:5px;">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -59,7 +59,7 @@
                             <tr>
                                 <td>{{ $i + 1 }}</td>
                                 <td>
-                                    <div class="mb-2">
+                                    <div class="">
                                         <input type="text"
                                             class="form-control @error('form.rab_items.*.nama_item') {{ 'is-invalid' }} @enderror"
                                             placeholder="Nama Item"
@@ -72,7 +72,7 @@
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="mb-2">
+                                    <div class="overflow-hidden">
                                         <select wire:model="form.rab_items.{{ $i }}.kategori_item"
                                             class="form-select @error('form.rab_items.*.kategori_item') {{ 'is-invalid' }} @enderror">
                                             <option>Pilih..</option>
@@ -87,10 +87,10 @@
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="mb-2">
+                                    <div class="overflow-hidden">
                                         <input type="text"
                                             class="form-control @error('form.rab_items.*.satuan') {{ 'is-invalid' }} @enderror"
-                                            placeholder="Satuan"
+                                            placeholder="Satuan" style="width: 80px;"
                                             wire:model="form.rab_items.{{ $i }}.satuan" />
                                         <div class="invalid-feedback">
                                             @error('form.rab_items.*.satuan')
@@ -100,10 +100,10 @@
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="mb-2">
-                                        <input type="number"
+                                    <div class="overflow-hidden">
+                                        <input type="text"
                                             class="form-control @error('form.rab_items.*.qty_rab') {{ 'is-invalid' }} @enderror"
-                                            placeholder="0"
+                                            placeholder="0" style="width: 80px;"
                                             wire:model.live="form.rab_items.{{ $i }}.qty_rab" />
                                         <div class="invalid-feedback">
                                             @error('form.rab_items.*.qty_rab')
@@ -113,10 +113,10 @@
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="mb-2">
-                                        <input type="number"
+                                    <div class="overflow-hidden">
+                                        <input type="text"
                                             class="form-control @error('form.rab_items.*.harga_satuan_rab') {{ 'is-invalid' }} @enderror"
-                                            placeholder="100000"
+                                            placeholder="100000" style="width: 100px;"
                                             wire:model.live="form.rab_items.{{ $i }}.harga_satuan_rab" />
                                         <div class="invalid-feedback">
                                             @error('form.rab_items.*.harga_satuan_rab')
@@ -166,6 +166,18 @@
     </form>
     @push('css-push')
         <link rel="stylesheet" href="{{ asset('assets/vendor/libs/datatables-bs5/datatables.bootstrap5.css') }}" />
+        <style>
+            .invalid-feedback {
+                display: block;
+                font-size: 10px;
+                line-height: 1.2;
+
+                white-space: normal;
+                /* boleh turun baris */
+                word-break: break-word;
+                /* pecah kata panjang */
+            }
+        </style>
     @endpush
     @push('js-push')
         <script src="{{ asset('assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js') }}"></script>
