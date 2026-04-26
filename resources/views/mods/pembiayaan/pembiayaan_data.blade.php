@@ -8,7 +8,8 @@
         <div class="col-md">
             <div class="card">
                 <div class="d-flex justify-content-end mt-5 me-5 pe-3">
-                    <a href="{{ route('pembiayaan.create') }}" class="btn btn-primary">+ Pembiayaan Baru</a>
+                    <a href="{{ route('pembiayaan.create') }}" class="btn btn-primary">
+                        <i class="icon-base ti tabler-plus me-2"></i>Pembiayaan Baru</a>
                 </div>
                 <div wire:ignore class="card-datatable table-responsive px-5">
                     <table id="myTable" class="table">

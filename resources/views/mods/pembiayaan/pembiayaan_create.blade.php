@@ -13,8 +13,11 @@
                     <h5 class="card-header">Informasi Pembiayaan</h5>
                     <div class="card-body">
                         <div class="mb-6">
-                            <label class="form-label" for="bs-validation-name">Nama Bank <span class="text-danger">*</span></label>
-                            <input wire:model="form.nama_master_bank" type="text" class="form-control @error('form.nama_master_bank') {{ 'is-invalid' }} @enderror" id="nama_master_bank" placeholder="Tulis nama bank..." />
+                            <label class="form-label" for="bs-validation-name">Nama Bank <span
+                                    class="text-danger">*</span></label>
+                            <input wire:model="form.nama_master_bank" type="text"
+                                class="form-control @error('form.nama_master_bank') {{ 'is-invalid' }} @enderror"
+                                id="nama_master_bank" placeholder="Tulis nama bank..." />
                             <div class="invalid-feedback">
                                 @error('form.nama_master_bank')
                                     {{ $message }}
@@ -37,7 +40,8 @@
                 <div class="card">
                     <h5 class="card-header d-flex justify-content-between">
                         <span>Tahapan Pembiayaan</span>
-                        <button type="button" class="btn btn-primary" wire:click="tambahTahapan()">+ Tambah Tahapan</button>
+                        <button type="button" class="btn btn-primary" wire:click="tambahTahapan()">
+                            <i class="icon-base ti tabler-plus me-2"></i>Tambah Tahapan</button>
                     </h5>
                     <div class="card-body card-datatable table-responsive px-5">
                         <table id="myTable" class="table">
@@ -54,7 +58,9 @@
                                     <tr>
                                         <td>{{ $i + 1 }}</td>
                                         <td>
-                                            <input wire:model="form.tahapan.{{ $i }}.nama_tahapan" type="text" class="form-control @error('form.tahapan.*.nama_tahapan') {{ 'is-invalid' }} @enderror">
+                                            <input wire:model="form.tahapan.{{ $i }}.nama_tahapan"
+                                                type="text"
+                                                class="form-control @error('form.tahapan.*.nama_tahapan') {{ 'is-invalid' }} @enderror">
                                             <div class="invalid-feedback">
                                                 @error('form.tahapan.*.nama_tahapan')
                                                     {{ $message }}
@@ -62,7 +68,9 @@
                                             </div>
                                         </td>
                                         <td>
-                                            <input wire:model="form.tahapan.{{ $i }}.nilai_progress" type="text" class="form-control @error('form.tahapan.*.nilai_progress') {{ 'is-invalid' }} @enderror">
+                                            <input wire:model="form.tahapan.{{ $i }}.nilai_progress"
+                                                type="text"
+                                                class="form-control @error('form.tahapan.*.nilai_progress') {{ 'is-invalid' }} @enderror">
                                             <div class="invalid-feedback">
                                                 @error('form.tahapan.*.nilai_progress')
                                                     {{ $message }}
@@ -71,7 +79,8 @@
                                         </td>
                                         <td>
                                             @if (count($form['tahapan']) > 1)
-                                                <i class="menu-icon icon-base ti tabler-trash btn btn-danger" wire:click="hapusTahapan({{ $i }})"></i>
+                                                <i class="menu-icon icon-base ti tabler-trash btn btn-danger"
+                                                    wire:click="hapusTahapan({{ $i }})"></i>
                                             @endif
                                         </td>
                                     </tr>
