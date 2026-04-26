@@ -91,7 +91,7 @@ new class extends Component {
                     <div>Pembiayaan</div>
                 </a>
                 <ul class="menu-sub">
-                    <li class="menu-item {{ request()->routeIs('pembiayaan.data') ? 'active' : '' }}">
+                    <li class="menu-item {{ request()->routeIs('pembiayaan.data') || request()->routeIs('pembiayaan.detail') || request()->routeIs('pembiayaan.edit') ? 'active' : '' }}">
                         <a href="{{ route('pembiayaan.data') }}" class="menu-link">
                             <div>Data Pembiayaan</div>
                         </a>
@@ -99,11 +99,6 @@ new class extends Component {
                     <li class="menu-item {{ request()->routeIs('pembiayaan.create') ? 'active' : '' }}">
                         <a href="{{ route('pembiayaan.create') }}" class="menu-link">
                             <div>Pembiayaan Baru</div>
-                        </a>
-                    </li>
-                    <li class="menu-item {{ request()->routeIs('pembiayaan.detail') ? 'active' : '' }}">
-                        <a href="{{ route('pembiayaan.detail') }}" class="menu-link">
-                            <div>Detail Pembiayaan</div>
                         </a>
                     </li>
                 </ul>
