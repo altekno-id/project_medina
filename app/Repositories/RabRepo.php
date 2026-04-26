@@ -17,7 +17,6 @@ class RabRepo
     {
         //
     }
-
     public static function store($dtRab, $dtItems)
     {
         DB::beginTransaction();
@@ -42,10 +41,14 @@ class RabRepo
             return false;
         }
     }
-
     public static function getDt()
     {
        $data = MasterRab::query()->with(['master_rab_items']);
        return $data;
+    }
+    public static function getDetail($id)
+    {
+        $data = MasterRab::query()->with(['master_rab_items'])->findOrFail($id);
+        return $data;
     }
 }

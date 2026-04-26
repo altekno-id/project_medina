@@ -90,11 +90,11 @@ class CreateRab extends Component
     public function tambahItem()
     {
         $this->form['rab_items'][] = [
-            'nama' => '',
-            'kategori' => '',
+            'nama_item' => '',
+            'kategori_item' => '',
             'satuan' => '',
-            'qty' => '',
-            'harga_satuan' => '',
+            'qty_rab' => '',
+            'harga_satuan_rab' => '',
         ];
     }
     public function hapusItem($index)

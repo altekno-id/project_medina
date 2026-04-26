@@ -1,4 +1,9 @@
 <div>
+    <livewire:page-title :data="[
+        'title' => 'RAB Baru',
+        'desc' => 'Buat master RAB dan tambahkan item di dalamnya secara efisien',
+    ]" />
+
     <form wire:submit="formSubmit">
         <div class="card mb-6">
             <h5 class="card-header">Informasi RAB</h5>

@@ -106,7 +106,7 @@
                         let editUrl = url.replace(':id', row.id);
 
                         return `
-                            <a href="/pembiayaan/detail/${row.id}" class="btn btn-sm btn-primary menu-icon icon-base ti tabler-eye"></a>
+                            <a href="/rab/detail/${row.id}" class="btn btn-sm btn-primary menu-icon icon-base ti tabler-eye"></a>
                             <a href="${editUrl}" class="btn btn-sm btn-primary menu-icon icon-base ti tabler-pencil"></a>
                             <button type="button" class="btn btn-sm btn-danger menu-icon icon-base ti tabler-trash" onclick="deleteConfirm(${row.id}, '${row.nama_master_rab}')"></button>
                         `;
