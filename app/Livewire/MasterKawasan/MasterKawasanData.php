@@ -4,11 +4,12 @@ namespace App\Livewire\MasterKawasan;
 
 use App\Repositories\MasterKawasanRepo;
 use Livewire\Component;
+use Livewire\WithoutUrlPagination;
 use Livewire\WithPagination;
 
 class MasterKawasanData extends Component
 {
-    use WithPagination;
+    use WithPagination, WithoutUrlPagination;
 
     public $filter = [
         'number' => 10,

@@ -100,16 +100,24 @@
 
                     {{-- First --}}
                     <li class="page-item {{ $masterKawasans->onFirstPage() ? 'disabled' : '' }}">
-                        <button class="page-link"
-                            wire:click="gotoPage(1)">
+                        <button
+                            type="button"
+                            class="page-link"
+                            wire:click="gotoPage(1)"
+                            wire:loading.attr="disabled"
+                            @disabled($masterKawasans->onFirstPage())>
                             <i class="icon-base ti tabler-chevrons-left icon-sm"></i>
                         </button>
                     </li>
 
                     {{-- Prev --}}
                     <li class="page-item {{ $masterKawasans->onFirstPage() ? 'disabled' : '' }}">
-                        <button class="page-link"
-                            wire:click="previousPage">
+                        <button
+                            type="button"
+                            class="page-link"
+                            wire:click="previousPage"
+                            wire:loading.attr="disabled"
+                            @disabled($masterKawasans->onFirstPage())>
                             <i class="icon-base ti tabler-chevron-left icon-sm"></i>
                         </button>
                     </li>
@@ -117,8 +125,12 @@
                     {{-- Number --}}
                     @for ($i = 1; $i <= $masterKawasans->lastPage(); $i++)
                         <li class="page-item {{ $masterKawasans->currentPage() == $i ? 'active' : '' }}">
-                            <button class="page-link"
-                                wire:click="gotoPage({{ $i }})">
+                            <button
+                                type="button"
+                                class="page-link"
+                                wire:click="gotoPage({{ $i }})"
+                                wire:loading.attr="disabled"
+                                @disabled($masterKawasans->currentPage() == $i)>
                                 {{ $i }}
                             </button>
                         </li>
@@ -126,16 +138,24 @@
 
                     {{-- Next --}}
                     <li class="page-item {{ !$masterKawasans->hasMorePages() ? 'disabled' : '' }}">
-                        <button class="page-link"
-                            wire:click="nextPage">
+                        <button
+                            type="button"
+                            class="page-link"
+                            wire:click="nextPage"
+                            wire:loading.attr="disabled"
+                            @disabled(!$masterKawasans->hasMorePages())>
                             <i class="icon-base ti tabler-chevron-right icon-sm"></i>
                         </button>
                     </li>
 
                     {{-- Last --}}
                     <li class="page-item {{ !$masterKawasans->hasMorePages() ? 'disabled' : '' }}">
-                        <button class="page-link"
-                            wire:click="gotoPage({{ $masterKawasans->lastPage() }})">
+                        <button
+                            type="button"
+                            class="page-link"
+                            wire:click="gotoPage({{ $masterKawasans->lastPage() }})"
+                            wire:loading.attr="disabled"
+                            @disabled(!$masterKawasans->hasMorePages())>
                             <i class="icon-base ti tabler-chevrons-right icon-sm"></i>
                         </button>
                     </li>
