@@ -22,7 +22,6 @@ class MasterRab extends Model
             // jika gak ada sesi (proses development belum ada modul login)
             $model->user_client_id = 1;
             $model->user_login_id = 1;
-
             // jika sudah ada
             if (Auth::check()) {
                 $model->user_client_id = Auth::user()->user_client_id;
@@ -38,6 +37,10 @@ class MasterRab extends Model
     public function user_logins(): BelongsTo
     {
         return $this->belongsTo(UserLogin::class);
+    }
+    public function master_rab_items()
+    {
+        return $this->hasMany(MasterRabItem::class);
     }
     public function units(): HasMany
     {

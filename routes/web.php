@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PembiayaanController;
+use App\Http\Controllers\RabController;
 use App\Livewire\Dashboard\DashboardIndex;
 use App\Livewire\MasterKawasan\MasterKawasanCreate;
 use App\Livewire\MasterKawasan\MasterKawasanData;
@@ -11,6 +12,7 @@ use App\Livewire\Pembiayaan\PembiayaanEdit;
 use App\Livewire\Rab\CreateRab;
 use App\Livewire\Rab\DataRab;
 use App\Livewire\Rab\DetailRab;
+use App\Livewire\Rab\EditRab;
 use Illuminate\Support\Facades\Route;
 
 // Route::get('/', function () {
@@ -36,8 +38,10 @@ Route::prefix('pembiayaan')->group(function () {
 
 Route::prefix('rab')->group(function () {
     Route::name('rab.')->group(function () {
+        Route::get('/datatable', [RabController::class, 'dataDt'])->name('Dt');
         Route::livewire('/data', DataRab::class)->name('data');
         Route::livewire('/create', CreateRab::class)->name('create');
-        Route::livewire('/detail', DetailRab::class)->name('detail');
+        Route::livewire('/detail/{id}', DetailRab::class)->name('detail');
+        Route::livewire('/edit/{id}', EditRab::class)->name('edit');
     });
 });

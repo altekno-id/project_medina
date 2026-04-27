@@ -1,56 +1,46 @@
 <div>
-    <div class="card">
-        <div class="card-header d-flex justify-content-between align-items-center">
-            <h5 class="mb-0">Data RAB</h5>
-            <a href="{{ route('rab.create') }}" type="submit" class="btn btn-primary">
-                <i class="icon-base ti tabler-plus me-2"></i>RAB Baru
-            </a>
-        </div>
-        <hr>
-        <div class="card-datatable table-responsive pt-0">
-            <table class="datatables-basic table" id="myTable">
-                <thead>
-                    <tr>
-                        <th>No</th>
-                        <th>Nama RAB</th>
-                        <th>Deskripsi</th>
-                        <th>Jumlah Item</th>
-                        <th>Total QTY</th>
-                        <th>Total Biaya RAB</th>
-                        <th>Aksi</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>1</td>
-                        <td>1</td>
-                        <td>1</td>
-                        <td>1</td>
-                        <td>1</td>
-                        <td class="">
-                            <button type="button" class="btn btn-icon rounded-pill btn-text-info">
-                                <i class="icon-base ti tabler-eye icon-22px"></i>
-                            </button>
-                            <button type="button" class="btn btn-icon rounded-pill btn-text-warning">
-                                <i class="icon-base ti tabler-edit icon-22px"></i>
-                            </button>
-                            <button type="button" class="btn btn-icon rounded-pill btn-text-danger">
-                                <i class="icon-base ti tabler-trash icon-22px"></i>
-                            </button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+    <livewire:page-title :data="[
+        'title' => 'Data RAB',
+        'desc' => 'Ringkasan master RAB dan total anggarannya',
+    ]" />
+
+    <div class="row">
+        <div class="col-md">
+            <div class="card">
+                <div class="d-flex justify-content-end mt-5 me-5 pe-3">
+                    <a href="{{ route('rab.create') }}" class="btn btn-primary">
+                        <i class="icon-base ti tabler-plus me-2"></i>RAB Baru
+                    </a>
+                </div>
+                <div wire:ignore class="card-datatable table-responsive px-5">
+                    <table id="myTable" class="table">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Nama RAB</th>
+                                <th>Deskripsi</th>
+                                <th>Jumalah Item</th>
+                                <th>Total QTY</th>
+                                <th>Total Biaya RAB</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <thead id="header-filter">
+                            <tr>
+                                <th></th>
+                                <th class="text-center">
+                                    <input type="text" class="form-control search-col-dt" placeholder="Cari...">
+                                </th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
-    @push('css-push')
-        <link rel="stylesheet" href="{{ asset('assets/vendor/libs/datatables-bs5/datatables.bootstrap5.css') }}" />
-    @endpush
-    @push('js-push')
-        <script src="{{ asset('assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js') }}"></script>
-        <script>
-            let table = new DataTable('#myTable');
-        </script>
-    @endpush
+    <livewire:modal-confirm />
+    @include('mods.rab.atc.data_rab_atc')
 </div>
