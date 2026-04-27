@@ -2,13 +2,9 @@
 
 namespace Database\Seeders;
 
-use App\Models\Master_bank;
 use App\Models\MasterBank;
-use App\Models\MasterBankTahapan;
 use App\Models\MasterKawasan;
-use App\Models\MasterKawasanSub;
 use App\Models\MasterRab;
-use App\Models\MasterRabItem;
 use App\Models\UserClient;
 use App\Models\UserLogin;
 use App\Models\UserRole;

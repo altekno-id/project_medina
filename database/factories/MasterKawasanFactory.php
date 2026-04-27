@@ -2,8 +2,8 @@
 
 namespace Database\Factories;
 
-use App\Models\MasterKawasan;
 use App\Models\MasterKawasanSub;
+use App\Models\MasterKawasanSubBlok;
 use App\Models\UserClient;
 use App\Models\UserLogin;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -21,16 +21,20 @@ class MasterKawasanFactory extends Factory
 
     public function definition(): array
     {
+        $clientId = UserClient::inRandomOrder()->first()->id;
+        $userId = UserLogin::inRandomOrder()->first()->id;
+
         return [
-            'user_client_id'=> UserClient::inRandomOrder()->first()->id,
-            'user_login_id'=> UserLogin::inRandomOrder()->first()->id,
-            'nama_master_kawasan'=> 'perumahan'.' '.fake()->firstName(),
-            'alamat_master_kawasan'=> fake()->streetAddress().'perumahan'.' '.fake()->firstName(),
+            'nama_master_kawasan' => 'Perumahan ' . fake()->firstName(),
+            'alamat_master_kawasan' => fake()->streetAddress() . 'perumahan ' . fake()->firstName(),
             'latitude'  => fake()->latitude(),
             'longitude' => fake()->longitude(),
-            'info_master_kawasan'=>json_encode([
-                'keterangan'=> fake()->sentence(),
+            'info_master_kawasan' => json_encode([
+                'keterangan' => fake()->sentence(),
             ]),
+            'user_client_id' => $clientId,
+            'created_by' => $userId,
+            'updated_by' => $userId,
         ];
     }
 
@@ -38,14 +42,25 @@ class MasterKawasanFactory extends Factory
     {
         return $this->afterCreating(function ($kawasan) {
 
-            foreach (range(1, 10) as $i) {
-                MasterKawasanSub::factory()->create([
-                    'user_client_id'=> $kawasan->user_client_id,
-                    'master_kawasan_id'=> $kawasan->id,
-                    'nama_master_kawasan_sub'=> "Blok {$i}",
+            foreach (range(1, 2) as $i) {
+                $cluster = MasterKawasanSub::factory()->create([
+                    'master_kawasan_id' => $kawasan->id,
+                    'nama_master_kawasan_sub' => "Cluster {$i}",
+                    'user_client_id' => $kawasan->user_client_id,
+                    'created_by' => $kawasan->created_by,
+                    'updated_by' => $kawasan->updated_by,
                 ]);
-            }
 
+                foreach (range(1, 5) as $j) {
+                    MasterKawasanSubBlok::factory()->create([
+                        'master_kawasan_sub_id' => $cluster->id,
+                        'nama_master_kawasan_sub_blok' => "Blok {$j}",
+                        'user_client_id' => $kawasan->user_client_id,
+                        'created_by' => $kawasan->created_by,
+                        'updated_by' => $kawasan->updated_by,
+                    ]);
+                }
+            }
         });
     }
 }

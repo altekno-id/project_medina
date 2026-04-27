@@ -15,11 +15,13 @@ return new class extends Migration
     {
         Schema::create('master_kawasan_subs', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(UserClient::class)->constrained();
             $table->foreignIdFor(MasterKawasan::class)->constrained();
             $table->string('nama_master_kawasan_sub', 150);
             $table->timestamps();
             $table->softDeletes();
+            $table->foreignIdFor(UserClient::class)->constrained();
+            $table->foreignId('created_by')->constrained('user_logins');
+            $table->foreignId('updated_by')->constrained('user_logins');
         });
     }
 

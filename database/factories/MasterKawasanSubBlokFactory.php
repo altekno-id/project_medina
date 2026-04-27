@@ -5,19 +5,19 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Master_kawasan_sub>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\MasterKawasanSubBlok>
  */
-class MasterKawasanSubFactory extends Factory
+class MasterKawasanSubBlokFactory extends Factory
 {
     /**
      * Define the model's default state.
      *
      * @return array<string, mixed>
      */
-
     public function definition(): array
     {
-        return [];
+        return [
+            //
+        ];
     }
-
 }

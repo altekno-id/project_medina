@@ -5,13 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Auth;
 
-class MasterKawasanSub extends Model
+class MasterKawasanSubBlok extends Model
 {
-    /** @use HasFactory<\Database\Factories\MasterKawasanSubFactory> */
+        /** @use HasFactory<\Database\Factories\MasterKawasanSubFactory> */
     use HasFactory, SoftDeletes;
 
     protected $guarded = [];
@@ -41,16 +40,11 @@ class MasterKawasanSub extends Model
     {
         return $this->belongsTo(UserClient::class);
     }
-    public function master_kawasans(): BelongsTo
+    public function master_kawasan_subs(): BelongsTo
     {
-        return $this->belongsTo(MasterKawasan::class);
+        return $this->belongsTo(MasterKawasanSub::class);
     }
-    public function master_kawasan_sub_bloks(): HasMany
-    {
-        return $this->hasMany(MasterKawasanSubBlok::class);
-    }
-    public function units(): HasMany
-    {
-        return $this->hasMany(Unit::class);
-    }
+
 }
+
+
