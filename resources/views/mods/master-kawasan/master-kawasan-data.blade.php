@@ -23,7 +23,6 @@
                                         <label class="col-sm-5 col-form-label" for="basic-default-name">Tampilkan</label>
                                         <div class="col-sm-7">
                                             <select class="form-select" wire:model.live="filter.number">
-                                                <option value="2">2</option>
                                                 <option value="10">10</option>
                                                 <option value="25">25</option>
                                                 <option value="50">50</option>
@@ -46,9 +45,9 @@
                             </div>
                         </div>
                         <div class="col-12 col-md-3 text-end">
-                            <button type="button" class="btn btn-primary waves-effect waves-light">
+                            <a href="{{ route('kawasan.create') }}" class="btn btn-primary waves-effect waves-light">
                                 <span class="icon-xs icon-base ti tabler-plus me-2"></span>Kawasan Baru
-                            </button>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -59,33 +58,67 @@
     <div class="row mt-5">
 
         @foreach ($masterKawasans as $item)
+            @php
+                $jumlahCluster = $item->master_kawasan_subs->count();
+
+                $jumlahBlok = $item->master_kawasan_subs->sum(function ($cluster) {
+                    return $cluster->master_kawasan_sub_bloks->count();
+                });
+
+                $jumlahUnit = $item->master_kawasan_subs->sum(function ($cluster) {
+                    return $cluster->units->count();
+                });
+            @endphp
+
             <div class="col-12 col-sm-6 col-md-4 mb-3">
                 <div class="card card-border-shadow-primary h-100">
-                    <div class="card-body">
-                        <div class="d-flex align-items-center mb-1">
+                    <div class="card-body d-flex flex-column">
+                        <div class="d-flex align-items-center mb-2">
                             <div class="avatar me-4">
                                 <span class="avatar-initial rounded bg-label-primary border border-primary">
                                     <i class="icon-base ti tabler-building-skyscraper icon-28px"></i>
                                 </span>
                             </div>
-                            <h5 class="mb-0">{{ $item['nama_master_kawasan'] }}</h5>
+
+                            <h5 class="mb-0">{{ $item->nama_master_kawasan }}</h5>
                         </div>
-                        <p class="mb-1">{{ $item['alamat_master_kawasan'] }}</p>
-                        <p>
+
+                        <p class="mb-3 text-muted">
+                            {{ $item->alamat_master_kawasan }}
+                        </p>
+
+                        <div class="d-flex flex-wrap gap-2 mb-3">
                             <span class="badge bg-label-secondary d-inline-flex align-items-center gap-1">
                                 <i class="icon-base ti tabler-building"></i>
-                                {{ count($item['master_kawasan_subs']) }} Cluster
+                                {{ $jumlahCluster }} Cluster
+                            </span>
+
+                            <span class="badge bg-label-secondary d-inline-flex align-items-center gap-1">
+                                <i class="icon-base ti tabler-layout-grid"></i>
+                                {{ $jumlahBlok }} Blok
                             </span>
 
                             <span class="badge bg-label-secondary d-inline-flex align-items-center gap-1">
                                 <i class="icon-base ti tabler-home"></i>
-                                {{ count($item['master_kawasan_subs']) }} Unit
+                                {{ $jumlahUnit }} Unit
                             </span>
-                        </p>
-                        <p class="mb-0">
-                            <span class="text-heading fw-medium me-2">+18.2%</span>
-                            <small class="text-body-secondary">than last week</small>
-                        </p>
+                        </div>
+
+                        <div class="d-flex gap-2 mt-auto">
+                            <a
+                                href="#"
+                                class="btn btn-sm btn-label-primary flex-fill">
+                                <i class="icon-base ti tabler-eye icon-xs me-1"></i>
+                                Detail
+                            </a>
+
+                            <a
+                                href="#"
+                                class="btn btn-sm btn-label-warning flex-fill">
+                                <i class="icon-base ti tabler-edit icon-xs me-1"></i>
+                                Edit
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>

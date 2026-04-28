@@ -16,13 +16,15 @@ return new class extends Migration
     {
         Schema::create('files', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(UserClient::class)->constrained();
             $table->foreignIdFor(MasterKawasan::class)->nullable()->constrained();
             $table->foreignIdFor(Unit::class)->nullable()->constrained();
             $table->string('judul_file', 150)->nullable();
             $table->string('nama_file', 255);
             $table->timestamps();
             $table->softDeletes();
+            $table->foreignIdFor(UserClient::class)->constrained();
+            $table->foreignId('created_by')->constrained('user_logins');
+            $table->foreignId('updated_by')->constrained('user_logins');
         });
     }
 

@@ -17,6 +17,13 @@ class MasterKawasan extends Model
 
     protected $guarded = [];
 
+    protected function casts(): array
+    {
+        return [
+            'info_master_kawasan' => 'array',
+        ];
+    }
+
     protected static function booted(): void
     {
         static::addGlobalScope('client', function (Builder $builder) {

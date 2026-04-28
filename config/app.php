@@ -2,6 +2,9 @@
 
 return [
 
+    'map_api' => env('MAP_API', 'AIzaSyAyuiIzEjMbfGeAKqA8XF2Ljuca47LZEok'),
+
+
     /*
     |--------------------------------------------------------------------------
     | Application Name

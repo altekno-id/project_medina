@@ -29,11 +29,14 @@ class MasterKawasanData extends Component
     public function render()
     {
         $masterKawasans = MasterKawasanRepo::getAll()
-            ->with('master_kawasan_subs')
+            ->with([
+                'master_kawasan_subs.master_kawasan_sub_bloks',
+                'master_kawasan_subs.units',
+            ])
             ->when($this->filter['search'], function ($query) {
                 $query->where(function ($q) {
                     $q->where('nama_master_kawasan', 'like', '%' . $this->filter['search'] . '%')
-                      ->orWhere('alamat_master_kawasan', 'like', '%' . $this->filter['search'] . '%');
+                        ->orWhere('alamat_master_kawasan', 'like', '%' . $this->filter['search'] . '%');
                 });
             })
             ->latest()
