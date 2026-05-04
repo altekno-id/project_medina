@@ -105,15 +105,20 @@ new class extends Component {
                     </li>
                 </ul>
             </li>
-            <li class="menu-item">
+            <li class="menu-item {{ request()->routeIs('unit.*') ? 'open' : '' }}">
                 <a href="javascript:void(0);" class="menu-link menu-toggle">
                     <i class="menu-icon icon-base ti tabler-building-community"></i>
-                    <div>Unit</div>
+                    <div>Pembangunan Unit</div>
                 </a>
                 <ul class="menu-sub">
-                    <li class="menu-item">
-                        <a href="#" class="menu-link">
-                            <div>Data Unit</div>
+                    <li class="menu-item {{ request()->routeIs('unit.data') || request()->routeIs('unit.detail') || request()->routeIs('unit.edit') ? 'active' : '' }}">
+                        <a href="{{ route('unit.data') }}" class="menu-link">
+                            <div>Data Pembangunan Unit</div>
+                        </a>
+                    </li>
+                    <li class="menu-item {{ request()->routeIs('unit.create') ? 'active' : '' }}">
+                        <a href="{{ route('unit.create') }}" class="menu-link">
+                            <div>Pembangunan Unit Baru</div>
                         </a>
                     </li>
                 </ul>

@@ -66,7 +66,7 @@ class PembiayaanEdit extends Component
             $this->dispatch('notify', data: [
                 'type' => 'success',
                 'title' => 'Proses berhasil',
-                'message' => 'Data master bank berhasil ditambahkan.'
+                'message' => 'Data master bank berhasil diperbarui.'
             ]);
 
             $this->initialForm = $this->form;

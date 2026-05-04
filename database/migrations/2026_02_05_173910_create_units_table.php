@@ -1,7 +1,9 @@
 <?php
 
 use App\Models\MasterBank;
+use App\Models\MasterKawasan;
 use App\Models\MasterKawasanSub;
+use App\Models\MasterKawasanSubBlok;
 use App\Models\MasterRab;
 use App\Models\UserClient;
 use Illuminate\Database\Migrations\Migration;
@@ -17,8 +19,9 @@ return new class extends Migration
     {
         Schema::create('units', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(UserClient::class)->constrained();
+            $table->foreignIdFor(MasterKawasan::class)->nullable()->constrained();
             $table->foreignIdFor(MasterKawasanSub::class)->nullable()->constrained();
+            $table->foreignIdFor(MasterKawasanSubBlok::class)->nullable()->constrained();
             $table->foreignIdFor(MasterRab::class)->constrained();
             $table->foreignIdFor(MasterBank::class)->constrained();
             $table->string('nama_jalan', 150)->nullable();
@@ -27,6 +30,9 @@ return new class extends Migration
             $table->decimal('harga_unit', 18, 2);
             $table->timestamps();
             $table->softDeletes();
+            $table->foreignIdFor(UserClient::class)->constrained();
+            $table->foreignId('created_by')->constrained('user_logins');
+            $table->foreignId('updated_by')->constrained('user_logins');
         });
     }
 

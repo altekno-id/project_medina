@@ -1,10 +1,15 @@
 <?php
 
+use App\Http\Controllers\PembangunanUnitController;
 use App\Http\Controllers\PembiayaanController;
 use App\Http\Controllers\RabController;
 use App\Livewire\Dashboard\DashboardIndex;
 use App\Livewire\MasterKawasan\MasterKawasanCreate;
 use App\Livewire\MasterKawasan\MasterKawasanData;
+use App\Livewire\MasterPembangunanUnit\MasterPembangunanUnitCreate;
+use App\Livewire\MasterPembangunanUnit\MasterPembangunanUnitData;
+use App\Livewire\MasterPembangunanUnit\MasterPembangunanUnitDetail;
+use App\Livewire\MasterPembangunanUnit\MasterPembangunanUnitEdit;
 use App\Livewire\Pembiayaan\PembiayaanCreate;
 use App\Livewire\Pembiayaan\PembiayaanData;
 use App\Livewire\Pembiayaan\PembiayaanDetail;
@@ -43,5 +48,15 @@ Route::prefix('rab')->group(function () {
         Route::livewire('/create', CreateRab::class)->name('create');
         Route::livewire('/detail/{id}', DetailRab::class)->name('detail');
         Route::livewire('/edit/{id}', EditRab::class)->name('edit');
+    });
+});
+
+Route::prefix('unit')->group(function () {
+    Route::name('unit.')->group(function () {
+        Route::get('/dt', [PembangunanUnitController::class, 'index'])->name('dt');
+        Route::livewire('/data', MasterPembangunanUnitData::class)->name('data');
+        Route::livewire('/create', MasterPembangunanUnitCreate::class)->name('create');
+        Route::livewire('/edit/{id}', MasterPembangunanUnitEdit::class)->name('edit');
+        Route::livewire('/detail/{id}', MasterPembangunanUnitDetail::class)->name('detail');
     });
 });
