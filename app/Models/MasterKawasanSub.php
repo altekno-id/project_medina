@@ -43,14 +43,14 @@ class MasterKawasanSub extends Model
     }
     public function master_kawasans(): BelongsTo
     {
-        return $this->belongsTo(MasterKawasan::class);
+        return $this->belongsTo(MasterKawasan::class, 'master_kawasan_id');
     }
     public function master_kawasan_sub_bloks(): HasMany
     {
-        return $this->hasMany(MasterKawasanSubBlok::class);
+        return $this->hasMany(MasterKawasanSubBlok::class, 'master_kawasan_sub_id');
     }
     public function units(): HasMany
     {
-        return $this->hasMany(Unit::class);
+        return $this->hasMany(Unit::class, 'master_kawasan_sub_blok_id');
     }
 }
