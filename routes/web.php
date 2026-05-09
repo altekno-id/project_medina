@@ -3,7 +3,7 @@
 use App\Http\Controllers\PembangunanUnitController;
 use App\Http\Controllers\PembiayaanController;
 use App\Http\Controllers\RabController;
-use App\Livewire\Dashboard\DashboardIndex;
+use App\Livewire\Dashboard\DashboardData;
 use App\Livewire\MasterKawasan\MasterKawasanCreate;
 use App\Livewire\MasterKawasan\MasterKawasanData;
 use App\Livewire\MasterPembangunanUnit\MasterPembangunanUnitCreate;
@@ -26,10 +26,8 @@ use App\Livewire\Rab\DetailRab;
 use App\Livewire\Rab\EditRab;
 use Illuminate\Support\Facades\Route;
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-Route::livewire('/', DashboardIndex::class)->name('dashboard');
+Route::livewire('/', DashboardData::class)->name('dashboard');
+
 Route::prefix('kawasan')->group(function () {
     Route::name('kawasan.')->group(function () {
         Route::livewire('/data', MasterKawasanData::class)->name('data');
