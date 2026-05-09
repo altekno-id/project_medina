@@ -14,6 +14,9 @@ use App\Livewire\Pembiayaan\PembiayaanCreate;
 use App\Livewire\Pembiayaan\PembiayaanData;
 use App\Livewire\Pembiayaan\PembiayaanDetail;
 use App\Livewire\Pembiayaan\PembiayaanEdit;
+use App\Livewire\PermintaanDana\PermintaanDanaCreate;
+use App\Livewire\PermintaanDana\PermintaanDanaData;
+use App\Livewire\PermintaanDana\PermintaanDanaEdit;
 use App\Livewire\PurchaseOrder\PurchaseOrderCreate;
 use App\Livewire\PurchaseOrder\PurchaseOrderData;
 use App\Livewire\PurchaseOrder\PurchaseOrderEdit;
@@ -69,5 +72,13 @@ Route::prefix('purchase-order')->group(function () {
         Route::livewire('/data', PurchaseOrderData::class)->name('data');
         Route::livewire('/created', PurchaseOrderCreate::class)->name('create');
         Route::livewire('/edit/{id}', PurchaseOrderEdit::class)->name('edit');
+    });
+});
+
+Route::prefix('permintaan-dana')->group(function () {
+    Route::name('permintaan-dana.')->group(function () {
+        Route::livewire('/data', PermintaanDanaData::class)->name('data');
+        Route::livewire('/create', PermintaanDanaCreate::class)->name('create');
+        Route::livewire('/edit/{id}', PermintaanDanaEdit::class)->name('edit');
     });
 });

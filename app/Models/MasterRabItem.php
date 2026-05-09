@@ -44,6 +44,11 @@ class MasterRabItem extends Model
         return $this->hasMany(OrderItem::class);
     }
 
+    public function permintaan_dana_units(): HasMany
+    {
+        return $this->hasMany(PermintaanDanaUnit::class, 'master_rab_item_id');
+    }
+
     public function user_logins(): BelongsTo
     {
         return $this->belongsTo(UserLogin::class);
