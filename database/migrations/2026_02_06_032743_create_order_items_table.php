@@ -16,13 +16,15 @@ return new class extends Migration
     {
         Schema::create('order_items', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(UserClient::class)->constrained();
             $table->foreignIdFor(OrderUnit::class)->constrained();
             $table->foreignIdFor(MasterRabItem::class)->constrained();
             $table->decimal('qty', 18, 3);
             $table->decimal('harga_satuan', 18, 2);
             $table->decimal('subtotal', 18, 2);
             $table->timestamps();
+            $table->foreignIdFor(UserClient::class)->constrained();
+            $table->foreignId('created_by')->constrained('user_logins');
+            $table->foreignId('updated_by')->constrained('user_logins');
         });
     }
 

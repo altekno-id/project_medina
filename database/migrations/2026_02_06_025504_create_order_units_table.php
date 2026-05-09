@@ -16,11 +16,13 @@ return new class extends Migration
     {
         Schema::create('order_units', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(UserClient::class)->constrained();
             $table->foreignIdFor(Order::class)->constrained();
             $table->foreignIdFor(Unit::class)->constrained();
             $table->timestamps();
             $table->softDeletes();
+            $table->foreignIdFor(UserClient::class)->constrained();
+            $table->foreignId('created_by')->constrained('user_logins');
+            $table->foreignId('updated_by')->constrained('user_logins');
         });
     }
 
