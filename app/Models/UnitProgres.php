@@ -10,6 +10,8 @@ class UnitProgres extends Model
 {
     use SoftDeletes;
 
+    protected $table = 'unit_progress';
+
     protected $guarded = [];
 
     public function user_clients(): BelongsTo
