@@ -14,6 +14,9 @@ use App\Livewire\Pembiayaan\PembiayaanCreate;
 use App\Livewire\Pembiayaan\PembiayaanData;
 use App\Livewire\Pembiayaan\PembiayaanDetail;
 use App\Livewire\Pembiayaan\PembiayaanEdit;
+use App\Livewire\PurchaseOrder\PurchaseOrderCreate;
+use App\Livewire\PurchaseOrder\PurchaseOrderData;
+use App\Livewire\PurchaseOrder\PurchaseOrderEdit;
 use App\Livewire\Rab\CreateRab;
 use App\Livewire\Rab\DataRab;
 use App\Livewire\Rab\DetailRab;
@@ -58,5 +61,13 @@ Route::prefix('unit')->group(function () {
         Route::livewire('/create', MasterPembangunanUnitCreate::class)->name('create');
         Route::livewire('/edit/{id}', MasterPembangunanUnitEdit::class)->name('edit');
         Route::livewire('/detail/{id}', MasterPembangunanUnitDetail::class)->name('detail');
+    });
+});
+
+Route::prefix('purchase-order')->group(function () {
+    Route::name('purchase-order.')->group(function () {
+        Route::livewire('/data', PurchaseOrderData::class)->name('data');
+        Route::livewire('/created', PurchaseOrderCreate::class)->name('create');
+        Route::livewire('/edit/{id}', PurchaseOrderEdit::class)->name('edit');
     });
 });

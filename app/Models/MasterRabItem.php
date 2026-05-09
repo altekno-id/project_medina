@@ -27,19 +27,35 @@ class MasterRabItem extends Model
                 $model->user_client_id = Auth::user()->user_client_id;
             }
         });
-
     }
 
     public function user_clients(): BelongsTo
     {
         return $this->belongsTo(UserClient::class);
     }
+
     public function master_rabs(): BelongsTo
     {
-        return $this->belongsTo(MasterRab::class);
+        return $this->belongsTo(MasterRab::class, 'master_rab_id');
     }
+
     public function order_items(): HasMany
     {
         return $this->hasMany(OrderItem::class);
+    }
+
+    public function user_logins(): BelongsTo
+    {
+        return $this->belongsTo(UserLogin::class);
+    }
+
+    public function created_by(): BelongsTo
+    {
+        return $this->belongsTo(UserLogin::class);
+    }
+
+    public function updated_by(): BelongsTo
+    {
+        return $this->belongsTo(UserLogin::class);
     }
 }

@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\MasterBank;
 use App\Models\MasterKawasan;
 use App\Models\MasterRab;
+use App\Models\Unit;
 use App\Models\UserClient;
 use App\Models\UserLogin;
 use App\Models\UserRole;
@@ -24,5 +25,6 @@ class DatabaseSeeder extends Seeder
         MasterBank::factory(10)->create();
         MasterKawasan::factory(10)->create();
         MasterRab::factory(10)->create();
+        Unit::factory(10)->create();
     }
 }

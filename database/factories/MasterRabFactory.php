@@ -17,16 +17,16 @@ class MasterRabFactory extends Factory
      *
      * @return array<string, mixed>
      */
-
     public function definition(): array
     {
         return [
-            'user_client_id'=> UserClient::inRandomOrder()->first()->id,
-            'user_login_id'=> UserLogin::inRandomOrder()->first()->id,
-            'nama_master_rab'=> fake()->word(),
-            'deskripsi'=> fake()->text(),
+            'user_client_id' => UserClient::inRandomOrder()->first()->id,
+            'user_login_id' => UserLogin::inRandomOrder()->first()->id,
+            'nama_master_rab' => fake()->word(),
+            'deskripsi' => fake()->text(),
         ];
     }
+
     public function configure()
     {
         return $this->afterCreating(function ($rab) {
@@ -47,15 +47,14 @@ class MasterRabFactory extends Factory
             foreach ($items as $item) {
                 MasterRabItem::factory()->create([
                     'user_client_id' => $rab->user_client_id,
-                    'master_rab_id'  => $rab->id,
-                    'nama_item'     => $item,
+                    'master_rab_id' => $rab->id,
+                    'nama_item' => $item,
                     'kategori_item' => fake()->word(),
-                    'satuan'        => fake()->randomElement(['Meter','Liter','Piece','Juta']),
-                    'qty_rab'       => fake()->randomFloat(2, 1, 100),
-                    'harga_satuan_rab'=> fake()->randomFloat(2, 10000, 100000),
+                    'satuan' => fake()->randomElement(['Meter', 'Liter', 'Piece', 'Juta']),
+                    'qty_rab' => fake()->numberBetween(1, 100),
+                    'harga_satuan_rab' => fake()->numberBetween(10000, 100000),
                 ]);
             }
-
         });
     }
 }

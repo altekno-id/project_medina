@@ -15,15 +15,17 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(UserClient::class)->constrained();
             $table->foreignIdFor(UserLogin::class)->constrained();
             $table->string('nomor_order', 50);
             $table->dateTime('tanggal_order');
-            $table->enum('tipe_order',['PO','PERMINTAAN_DANA']);
+            $table->enum('tipe_order', ['PO', 'PERMINTAAN_DANA']);
             $table->unsignedTinyInteger('status_order')->default(0);
             $table->text('catatan')->nullable();
             $table->timestamps();
             $table->softDeletes();
+            $table->foreignIdFor(UserClient::class)->constrained();
+            $table->foreignId('created_by')->constrained('user_logins');
+            $table->foreignId('updated_by')->constrained('user_logins');
         });
     }
 

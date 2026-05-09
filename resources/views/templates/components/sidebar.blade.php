@@ -127,8 +127,8 @@ new class extends Component {
             <li class="menu-header small">
                 <span class="menu-header-text">Operasional</span>
             </li>
-            <li class="menu-item">
-                <a href="#" class="menu-link">
+            <li class="menu-item {{ request()->routeIs('purchase-order.data') ? 'active' : '' }}">
+                <a href="{{ route('purchase-order.data') }}" class="menu-link">
                     <i class="menu-icon icon-base ti tabler-shopping-cart"></i>
                     <div>Purchase Order</div>
                 </a>
