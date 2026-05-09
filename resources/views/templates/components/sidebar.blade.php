@@ -133,8 +133,8 @@ new class extends Component {
                     <div>Purchase Order</div>
                 </a>
             </li>
-            <li class="menu-item">
-                <a href="#" class="menu-link">
+            <li class="menu-item {{ request()->routeIs('permintaan-dana.data') ? 'active' : '' }}">
+                <a href="{{ route('permintaan-dana.data') }}" class="menu-link">
                     <i class="menu-icon icon-base ti tabler-wallet"></i>
                     <div>Permintaan Dana</div>
                 </a>

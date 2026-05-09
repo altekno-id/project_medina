@@ -3,16 +3,15 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Auth;
 
-class Unit extends Model
+
+class PermintaanDanaUnit extends Model
 {
-    use HasFactory, SoftDeletes;
+    use SoftDeletes;
 
     protected $guarded = [];
 
@@ -48,59 +47,24 @@ class Unit extends Model
         });
     }
 
+    public function permintaan_danas(): BelongsTo
+    {
+        return $this->belongsTo(PermintaanDana::class, 'permintaan_dana_id');
+    }
+
+    public function units(): BelongsTo
+    {
+        return $this->belongsTo(Unit::class, 'unit_id');
+    }
+
+    public function master_rab_items(): BelongsTo
+    {
+        return $this->belongsTo(MasterRabItem::class, 'master_rab_item_id');
+    }
+
     public function user_clients(): BelongsTo
     {
         return $this->belongsTo(UserClient::class);
-    }
-
-    public function master_kawasans(): BelongsTo
-    {
-        return $this->belongsTo(MasterKawasan::class, 'master_kawasan_id');
-    }
-
-    public function master_kawasan_subs(): BelongsTo
-    {
-        return $this->belongsTo(MasterKawasanSub::class, 'master_kawasan_sub_id');
-    }
-
-    public function master_kawasan_sub_bloks(): BelongsTo
-    {
-        return $this->belongsTo(MasterKawasanSubBlok::class, 'master_kawasan_sub_blok_id');
-    }
-
-    public function master_rabs(): BelongsTo
-    {
-        return $this->belongsTo(MasterRab::class, 'master_rab_id');
-    }
-
-    public function master_banks(): BelongsTo
-    {
-        return $this->belongsTo(MasterBank::class, 'master_bank_id');
-    }
-
-    public function unit_progress(): HasMany
-    {
-        return $this->hasMany(UnitProgres::class);
-    }
-
-    public function order_units(): HasMany
-    {
-        return $this->hasMany(OrderUnit::class);
-    }
-
-    public function files(): HasMany
-    {
-        return $this->hasMany(File::class);
-    }
-
-    public function permintaan_dana_units(): HasMany
-    {
-        return $this->hasMany(PermintaanDanaUnit::class, 'unit_id');
-    }
-
-    public function user_logins(): BelongsTo
-    {
-        return $this->belongsTo(UserLogin::class);
     }
 
     public function created_by(): BelongsTo
