@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreignIdFor(UserClient::class)->constrained();
             $table->foreignIdFor(MasterRab::class)->constrained();
             $table->string('nama_item', 150);
-            $table->string('kategori_item', 30);
+            $table->enum('kategori_item', ['Material', 'Jasa']);
             $table->string('satuan', 30);
             $table->decimal('qty_rab', 18, 3)->default(0);
             $table->decimal('harga_satuan_rab', 18, 2)->default(0);
