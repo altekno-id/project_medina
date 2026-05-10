@@ -49,7 +49,7 @@ class MasterRabFactory extends Factory
                     'user_client_id' => $rab->user_client_id,
                     'master_rab_id' => $rab->id,
                     'nama_item' => $item,
-                    'kategori_item' => fake()->word(),
+                    'kategori_item' => fake()->randomElement(['Material', 'Jasa']),
                     'satuan' => fake()->randomElement(['Meter', 'Liter', 'Piece', 'Juta']),
                     'qty_rab' => fake()->numberBetween(1, 100),
                     'harga_satuan_rab' => fake()->numberBetween(10000, 100000),
